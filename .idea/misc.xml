@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/call_green.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/activity_calling.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>
