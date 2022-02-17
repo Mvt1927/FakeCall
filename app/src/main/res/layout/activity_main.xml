@@ -98,6 +98,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageButton
+        android:id="@+id/btn_start_fake_call"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
