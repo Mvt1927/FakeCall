@@ -2,6 +2,7 @@ package com.example.fakecall
 
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TimePicker
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,5 +42,7 @@ class MainActivity : AppCompatActivity() {
     fun onBtnStartFakeCallClick(){
         val startFakeCall = Intent(this,CallingActivity::class.java)
         startActivity(startFakeCall)
+        val string:String = getString(R.string.app_name)
+        finish()
     }
 }
