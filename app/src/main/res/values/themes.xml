@@ -13,7 +13,7 @@
 
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
-        <item name="android:background">?attr/background</item>
+        <item name="actionModeBackground">@style/Animation.Design.BottomSheetDialog</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowContentOverlay">@null</item>
