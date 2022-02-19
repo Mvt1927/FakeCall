@@ -15,10 +15,6 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.Settings
-import android.view.Window
-import android.view.WindowManager
-import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
-import android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
 import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
