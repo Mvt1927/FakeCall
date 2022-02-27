@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        time = findViewById(R.id.time)
+        time = findViewById(R.id.BtnSelectRingtone)
         time.setOnClickListener{
             val currentTime:Calendar = getInstance()
             val hour:Int = currentTime.get(HOUR_OF_DAY)

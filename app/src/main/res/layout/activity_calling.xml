@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) Mvt1927
+  ~ Update 27/2/2022
+  -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CallingActivity"
@@ -9,9 +15,10 @@
     android:id="@+id/background"
     >
     <FrameLayout
+        android:fitsSystemWindows="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80202020"
+        android:background="@color/Filter"
         >
     </FrameLayout>
     <ImageView
@@ -72,59 +79,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:layout_gravity="center">
-            <GridLayout
-                android:id="@+id/btn_silent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:columnCount="1"
-                android:useDefaultMargins="true"
-                tools:ignore="UselessParent">
-                <ImageView
-                    android:id="@+id/btn_silent_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_bell_slash_regular"
-                    android:layout_gravity="center"
-                    app:tint="@color/white"
-                    android:contentDescription="@string/iconSilent" />
-                <TextView
-                    android:id="@+id/btn_silent_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textBtnSilent"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:layout_gravity="center"/>
-            </GridLayout>
+            <include
+                layout="@layout/btn_silent"
+                style="@style/TextAppearance.AppCompat.Button"
+                />
         </FrameLayout>
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:layout_gravity="center">
-            <GridLayout
-                android:id="@+id/btn_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:columnCount="1"
-                android:layout_gravity="center"
-                android:useDefaultMargins="true"
-                tools:ignore="UselessParent">
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_message"
-                    android:contentDescription="@string/iconMessage" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textBtnMessage"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"/>
-            </GridLayout>
+            <include
+                layout="@layout/btn_message"
+                style="@style/Widget.AppCompat.Button"/>
         </FrameLayout>
     </LinearLayout>
     <LinearLayout
@@ -141,11 +108,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="50">
-            <ImageView
+            <ImageButton
+
                 android:id="@+id/btn_deny_call"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/ic_deny_call"
+                android:background="@drawable/ic_deny_call"
                 android:layout_gravity="center"
                 android:contentDescription="@string/iconDenyCall" />
         </FrameLayout>
@@ -153,13 +121,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="50">
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_accept_call"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/ic_accept_call"
+                android:clipToOutline="true"
+                style="@style/Widget.AppCompat.Button"
+                android:background="@drawable/ic_accept_call"
                 android:layout_gravity="center"
-                android:contentDescription="@string/iconAcceptCall" />
+                android:contentDescription="@string/iconAcceptCall"
+                tools:ignore="OnClick" />
         </FrameLayout>
     </LinearLayout>
 

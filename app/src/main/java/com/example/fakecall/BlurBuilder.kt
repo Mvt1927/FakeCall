@@ -12,13 +12,12 @@ import androidx.renderscript.ScriptIntrinsicBlur
 import kotlin.math.roundToInt
 
 object BlurBuilder {
-    private const val BITMAP_SCALE:Float = 0.1f
+    private const val BITMAP_SCALE:Float = 0.15f
     private const val BLUR_RADIUS:Float = 20f
 
     fun blur(context: Context, image: Bitmap):Bitmap{
         val with:Int = (image.width * BITMAP_SCALE).roundToInt()
         val height:Int = (image.height * BITMAP_SCALE).roundToInt()
-
         val inputBitMap:Bitmap = Bitmap.createScaledBitmap(image,with,height,false)
         val outputBitMap:Bitmap = Bitmap.createBitmap(inputBitMap)
 

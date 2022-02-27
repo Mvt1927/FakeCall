@@ -1,0 +1,13 @@
+<component name="CopyrightManager">
+  <settings default="Mvt1927">
+    <LanguageOptions name="DTD">
+      <option name="fileTypeOverride" value="3" />
+      <option name="separateBefore" value="true" />
+      <option name="separateAfter" value="true" />
+    </LanguageOptions>
+    <LanguageOptions name="__TEMPLATE__">
+      <option name="addBlankAfter" value="false" />
+      <option name="separateBefore" value="true" />
+    </LanguageOptions>
+  </settings>
+</component>

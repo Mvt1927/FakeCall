@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "101963901165",
+    "project_id": "fake-call-8cead",
+    "storage_bucket": "fake-call-8cead.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101963901165:android:0a95eaf221f48d769ac4e4",
+        "android_client_info": {
+          "package_name": "com.example.fakecall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101963901165-aq0p6utmhmpkb8o5dnu6jsh2bufi4evg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fakecall",
+            "certificate_hash": "821b1a9b29236b332872a83714b41a346b354b89"
+          }
+        },
+        {
+          "client_id": "101963901165-e7f0vjd41i4gr4cq5edv8ihlspshbsgf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1pW_FZ8UYHAzMbQzNTuJ0mCWl5v3UyS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101963901165-e7f0vjd41i4gr4cq5edv8ihlspshbsgf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

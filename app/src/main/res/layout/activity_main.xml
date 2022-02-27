@@ -7,72 +7,103 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="500dp"
+        android:id="@+id/Avatar"
+        android:layout_width="@dimen/DefaultDimenAvatar"
+        android:layout_height="@dimen/DefaultDimenAvatar"
+        android:layout_marginTop="@dimen/ImageMarginTop"
+        android:layout_marginBottom="@dimen/smallMar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/NameInputLayout"
         android:src="@drawable/ic_baseline_account_circle_24"
         android:contentDescription="@string/avatar" />
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="340dp"
-        android:text="@string/name"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:inputType="textCapWords"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/NameInputLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/smallMar"
+        android:layout_marginBottom="@dimen/smallMar"
+        app:layout_constraintTop_toBottomOf="@id/Avatar"
+        app:layout_constraintBottom_toTopOf="@id/InputPhoneAndLocationLayout"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="name"
-        tools:ignore="LabelFor" />
+        app:layout_constraintRight_toRightOf="parent">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/inputHeight"
+            android:autofillHints="name"
+            android:background="@color/white"
+            android:hint="@string/name"
+            android:inputType="textCapWords"
+            android:minWidth="120dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
+        android:id="@+id/InputPhoneAndLocationLayout"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_height="50dp"
-        android:layout_marginBottom="240dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/smallMar"
+        app:layout_constraintTop_toBottomOf="@id/NameInputLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/BtnSelectRingtone">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="@string/numberPhone"
-            android:textAlignment="center"
-            android:textStyle="normal"
-            android:inputType="phone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor" />
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/inputHeight"
+                android:background="@color/white"
+                android:hint="@string/numberPhone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:minWidth="150dp"
+                android:textAlignment="center"
+                android:textStyle="normal"
+                tools:ignore="LabelFor" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="@string/location"
-            android:inputType="textCapWords"
-            android:textAlignment="center"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:autofillHints="postalAddress"
-            tools:ignore="LabelFor" />
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/inputHeight"
+                android:autofillHints="postalAddress"
+                android:background="@color/white"
+                android:hint="@string/location"
+                android:inputType="textCapWords"
+                android:minWidth="100dp"
+                android:textAlignment="center"
+                android:textStyle="normal"
+                tools:ignore="LabelFor" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <Button
-        android:id="@+id/time"
+        android:id="@+id/BtnSelectAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Change avatar"
+        android:padding="10dp"
+        android:textColorHint="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:layout_marginTop="@dimen/inputHeight"
+        android:layout_marginBottom="@dimen/smallMar"
+        app:layout_constraintTop_toBottomOf="@id/InputPhoneAndLocationLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/BtnSelectRingtone" />
+    <Button
+        android:id="@+id/BtnSelectRingtone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -81,36 +112,39 @@
         android:textColorHint="#ffffff"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/smallMar"
+        android:layout_marginBottom="@dimen/smallMar"
+        app:layout_constraintTop_toBottomOf="@id/BtnSelectAvatar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/btnAddVoice" />
     <Button
-        android:id="@+id/NewVoice"
+        android:id="@+id/btnAddVoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/smallMar"
+        android:layout_marginBottom="@dimen/inputHeight"
         android:hint="@string/NameRecord"
         android:padding="10dp"
         android:textColorHint="#ffffff"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/BtnSelectRingtone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/btn_start_fake_call"/>
 
     <ImageButton
         android:id="@+id/btn_start_fake_call"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/dimenBtnStart"
+        android:layout_height="@dimen/dimenBtnStart"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"
         android:background="@drawable/call_green"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:contentDescription="@string/start"
+        android:layout_marginBottom="@dimen/inputHeight"
+        app:layout_constraintTop_toBottomOf="@id/btnAddVoice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:contentDescription="@string/start" />
+        app:layout_constraintRight_toRightOf="parent" />
   </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Fake Call</string>
-    <string name="numberPhone">097 690 38 59</string>
-    <string name="location">Việt Nam</string>
-    <string name="name">Vu</string>
-    <string name="avatar">TODO</string>
-    <string name="selectTime">Select Time</string>
-    <string name="NameRecord">Select the recording to play</string>
+    <string name="numberPhone">Number phone</string>
+    <string name="location">Location</string>
+    <string name="name">Name</string>
+    <string name="avatar">Avatar</string>
+    <string name="selectTime">Ringtone</string>
+    <string name="NameRecord">Add Voice</string>
     <string name="start">Start</string>
     <string name="iconSilent">IconSilient</string>
     <string name="textBtnSilent">Im lặng</string>
