@@ -11,21 +11,20 @@ import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import androidx.fragment.app.DialogFragment
 
 class CustomDialog internal constructor(
     var c: Context ,
-    title:CharSequence="Test",
-    message: CharSequence="Test",
-    private val i: Int = 1
-):Dialog(c),View.OnClickListener{
+    var t:CharSequence="Test",
+    var m: CharSequence="Test",
+    private val i: Int = 1):DialogFragment(){
 
     lateinit var sharedPref:SharedPreferences
     var buttonClick = -1
 
-    override fun onCreate(savedInstanceState: Bundle?){
-        super.onCreate(savedInstanceState)
-            // Use the Builder class for convenient dialog construction
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return activity?.let {
             val builder = AlertDialog.Builder(c,R.style.CustomDialogTheme)
             when (i){
 /*
@@ -40,8 +39,8 @@ class CustomDialog internal constructor(
                         })
                     .setPositiveButton(R.string.text_import,
                         DialogInterface.OnClickListener { dialog, id ->
-                            var dialog:CustomDialog = CustomDialog(c,0)
-                            dialog.show()
+                            var dialog:CustomDialog = CustomDialog(c,i=0)
+                            dialog.show(parentFragmentManager,"Dialog")
                         })
                     .setNegativeButton(R.string.text_default,
                         DialogInterface.OnClickListener { dialog, id ->
@@ -71,19 +70,9 @@ class CustomDialog internal constructor(
             }
             // Create the AlertDialog object and return it
             builder.create()
-    }
-    override fun setOnCancelListener(listener: DialogInterface.OnCancelListener?) {
-        super.setOnCancelListener(listener)
-        buttonClick = -1
+        }?: throw IllegalStateException("")
+            // Use the Builder class for convenient dialog construction
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        buttonClick = -1
-    }
-
-    override fun onClick(v: View) {
-        dismiss()
-    }
 }
 

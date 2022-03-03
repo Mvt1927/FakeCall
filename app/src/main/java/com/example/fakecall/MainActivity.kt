@@ -1,8 +1,11 @@
 package com.example.fakecall
 
 import android.Manifest
-import android.content.*
+import android.content.ActivityNotFoundException
 import android.content.ContentValues.TAG
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
@@ -160,11 +163,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onAvatarClick(){
-        val cdd = CustomDialog(this, getString(R.string.s_change_avatar_title),getString(R.string.s_change_avatar_mess))
-        cdd.show()
-        cdd.setOnDismissListener(DialogInterface.OnDismissListener {
-            onDialogDismiss(cdd.buttonClick, 1)
-        })
+//        val cdd = CustomDialog(this, getString(R.string.s_change_avatar_title),getString(R.string.s_change_avatar_mess))
+//        cdd.show()
+//        cdd.setOnDismissListener(DialogInterface.OnDismissListener {
+//            onDialogDismiss(cdd.buttonClick, 1)
+//        })
     }
 
     private fun  onDialogDismiss(button: Int, id:Int){
@@ -213,7 +216,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun onBtnSetBackgroundClick(){
         customDialog = CustomDialog(this,i=0)
-        customDialog.show()
+        customDialog.show(supportFragmentManager,"ba")
     }
 
     private fun onBtnStartFakeCallClick(){

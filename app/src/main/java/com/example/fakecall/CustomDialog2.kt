@@ -37,7 +37,7 @@ class CustomDialog2 internal constructor(
                     Log.i("Cancel","Cancel click")
                 })
                 .setPositiveButton(R.string.text_import, DialogInterface.OnClickListener { dialog, id ->
-                    var dialog:CustomDialog = CustomDialog(c,i=0)
+                    var dialog:CustomDialog2 = CustomDialog2(c,i=0)
                     dialog.show()
                 })
                 .setNegativeButton(R.string.text_default, DialogInterface.OnClickListener { dialog, id ->
