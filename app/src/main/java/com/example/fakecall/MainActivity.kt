@@ -16,13 +16,14 @@ import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.loader.content.CursorLoader
 import java.io.File
 import java.io.IOException
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),CustomDialog.CustomDialogListener{
     private val REQUEST_READ_PERMISSION = 786
     private val REQUEST_RECORD_PERMISSION = 1
     private var backPressedTime: Long = 0
@@ -32,8 +33,6 @@ class MainActivity : AppCompatActivity() {
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission_group.STORAGE
     )
-
-    private lateinit var customDialog:CustomDialog;
 
     private val NAME: String = "name"
     private val PHONE: String = "phone"
@@ -163,14 +162,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onAvatarClick(){
-//        val cdd = CustomDialog(this, getString(R.string.s_change_avatar_title),getString(R.string.s_change_avatar_mess))
-//        cdd.show()
-//        cdd.setOnDismissListener(DialogInterface.OnDismissListener {
-//            onDialogDismiss(cdd.buttonClick, 1)
-//        })
+//        1 -> avatar
+        var customDialog = CustomDialog(this,1,getString(R.string.s_change_avatar_title),getString(R.string.s_change_avatar_mess))
+        customDialog.show(supportFragmentManager,"CustomDialog_ID1")
     }
 
-    private fun  onDialogDismiss(button: Int, id:Int){
+    override fun onCustomDialogDismiss(button: Int, id: Int) {
         var e:SharedPreferences.Editor
 /*
 *       1 -> avatar
@@ -208,15 +205,20 @@ class MainActivity : AppCompatActivity() {
                     return
                 }
                 1   ->  {
+                    CustomToast.info(this,(ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)).toString())
+                    if (ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)==0)
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),1)
+                        }
                     return
                 }
             }
         }
     }
-
     private fun onBtnSetBackgroundClick(){
-        customDialog = CustomDialog(this,i=0)
-        customDialog.show(supportFragmentManager,"ba")
+//        2 -> background
+        var customDialog = CustomDialog(this,2,getString(R.string.change_background),getString(R.string.change_background_message))
+        customDialog.show(supportFragmentManager,"CustomDialog_ID2")
     }
 
     private fun onBtnStartFakeCallClick(){
@@ -277,11 +279,6 @@ class MainActivity : AppCompatActivity() {
             cropIntent.putExtra("outputX", 800)
             cropIntent.putExtra("outputY", 800)
             var f:File
-//            if (Build.VERSION.SDK_INT >= 29) {
-//                f = File(getExternalFilesDir(Environment.DIRECTORY_DCIM), getString(R.string.appFolder)+getString(R.string.avatarImagePath))
-//            } else {
-//                f = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), getString(R.string.appFolder)+getString(R.string.avatarImagePath))
-//            }
             f = File(Environment.getExternalStorageDirectory(),getString(R.string.appFolder)+getString(R.string.avatarImagePath))
             try {
                 f.createNewFile()
@@ -311,13 +308,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode:Int, permission:Array<String>, grantResults: IntArray ){
         super.onRequestPermissionsResult(requestCode,permission, grantResults)
-        if (requestCode == REQUEST_READ_PERMISSION && grantResults[0]==0){
-            pick()
+        var text:String=""
+        var boolean:Boolean=false
+        when(requestCode){
+            1   -> {
+                text = "WRITE_EXTERNAL_STORAGE"
+                boolean=(grantResults[0]==0)
+            }
+            786 -> {
+                text = "READ_EXTERNAL_STORAGE"
+                boolean=(grantResults[0]==0)
+                if (boolean) pick()
+            }
         }
-        if (requestCode == REQUEST_RECORD_PERMISSION && grantResults[0]==0){
-
-        }
-        Toast.makeText(this,"Permission to Access Storage: "+ isExternalStorageWritable(),Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"Permission $text : $boolean",Toast.LENGTH_SHORT).show()
     }
 
     fun isExternalStorageWritable(): Boolean {
@@ -399,4 +403,6 @@ class MainActivity : AppCompatActivity() {
         }
         backPressedTime = System.currentTimeMillis()
     }
+
+
 }

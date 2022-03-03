@@ -65,6 +65,9 @@ class CustomDialog2 internal constructor(
         // Create the AlertDialog object and return it
         builder.create()
     }
+
+
+
     override fun setOnCancelListener(listener: DialogInterface.OnCancelListener?) {
         super.setOnCancelListener(listener)
         buttonClick = -1

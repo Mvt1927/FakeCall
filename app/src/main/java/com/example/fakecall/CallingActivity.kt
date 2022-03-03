@@ -9,6 +9,7 @@ package com.example.fakecall
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -35,12 +36,28 @@ import androidx.core.graphics.drawable.toBitmap
 
 
 class CallingActivity: AppCompatActivity() {
+
+    private val NAME: String = "name"
+    private val PHONE: String = "phone"
+    private val LOCATION: String = "location"
+    private val AVATAR:String = "avatar"
+    private val BACKGROUND:String = "background"
+    private val DEFAULT_TEXT: String = ""
+
+
     private lateinit var ringtone: Ringtone
     private lateinit var vibrationEffect: VibrationEffect
     private lateinit var vibrator:Vibrator
     private lateinit var audioManager: AudioManager
     private var status = -1;
     private lateinit var returnIntent:Intent;
+
+    lateinit var sharedPref: SharedPreferences
+
+    lateinit var nameEditText: TextView
+    lateinit var phoneEditText: TextView
+    lateinit var locationEditText: TextView
+    lateinit var avatarImageView:ImageView
 
     @RequiresApi(Build.VERSION_CODES.O)
     private var backPressedTime:Long = 0
@@ -51,6 +68,26 @@ class CallingActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calling)
         getImageBackground()
+        sharedPref = getSharedPreferences("file",0)
+        nameEditText = findViewById(R.id.nameEditText)
+        phoneEditText = findViewById(R.id.phoneEditText)
+        locationEditText = findViewById(R.id.locationEditText)
+        avatarImageView = findViewById(R.id.Avatar)
+
+        val name = sharedPref.getString(NAME,DEFAULT_TEXT)
+        val phone = sharedPref.getString(PHONE,DEFAULT_TEXT)
+        val location = sharedPref.getString(LOCATION,DEFAULT_TEXT)
+        val avatar = sharedPref.getString(AVATAR,DEFAULT_TEXT)
+
+        nameEditText.setText(name)
+        phoneEditText.setText(phone)
+        locationEditText.setText(location)
+        if (avatar!=null&&Drawable.createFromPath(avatar)!=null)
+            avatarImageView.setImageDrawable(Drawable.createFromPath(avatar))
+        else {
+            avatarImageView.setImageResource(R.drawable.ic_baseline_account_circle_24)
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w: Window = window
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
