@@ -6,8 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/Avatar"
+        app:civ_border="false"
         android:layout_width="@dimen/DefaultDimenAvatar"
         android:layout_height="@dimen/DefaultDimenAvatar"
         android:layout_marginTop="@dimen/ImageMarginTop"
@@ -25,11 +26,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/smallMar"
         android:layout_marginBottom="@dimen/smallMar"
+        android:textStyle="normal"
         app:layout_constraintTop_toBottomOf="@id/Avatar"
         app:layout_constraintBottom_toTopOf="@id/InputPhoneAndLocationLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
         <EditText
+            android:id="@+id/nameEditText"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/inputHeight"
             android:autofillHints="name"
@@ -52,12 +55,13 @@
         app:layout_constraintTop_toBottomOf="@id/NameInputLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/BtnSelectRingtone">
+        app:layout_constraintBottom_toTopOf="@id/btnSelectRingtone">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/phoneEditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/inputHeight"
                 android:background="@color/white"
@@ -74,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/locationEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/inputHeight"
                 android:autofillHints="postalAddress"
@@ -87,11 +92,12 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <Button
-        android:id="@+id/BtnSelectAvatar"
+        android:id="@+id/btnSelectBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="120dp"
         android:layout_centerHorizontal="true"
-        android:hint="Change avatar"
+        android:hint="@string/background"
         android:padding="10dp"
         android:textColorHint="#ffffff"
         android:textSize="14sp"
@@ -101,20 +107,21 @@
         app:layout_constraintTop_toBottomOf="@id/InputPhoneAndLocationLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/BtnSelectRingtone" />
+        app:layout_constraintBottom_toTopOf="@id/btnSelectRingtone" />
     <Button
-        android:id="@+id/BtnSelectRingtone"
+        android:id="@+id/btnSelectRingtone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="120dp"
         android:layout_centerHorizontal="true"
-        android:hint="@string/selectTime"
+        android:hint="@string/ringtone"
         android:padding="10dp"
         android:textColorHint="#ffffff"
         android:textSize="14sp"
         android:textStyle="normal"
         android:layout_marginTop="@dimen/smallMar"
         android:layout_marginBottom="@dimen/smallMar"
-        app:layout_constraintTop_toBottomOf="@id/BtnSelectAvatar"
+        app:layout_constraintTop_toBottomOf="@id/btnSelectBackground"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btnAddVoice" />
@@ -122,15 +129,16 @@
         android:id="@+id/btnAddVoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="120dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/smallMar"
         android:layout_marginBottom="@dimen/inputHeight"
-        android:hint="@string/NameRecord"
+        android:hint="@string/Voice"
         android:padding="10dp"
         android:textColorHint="#ffffff"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintTop_toBottomOf="@id/BtnSelectRingtone"
+        app:layout_constraintTop_toBottomOf="@id/btnSelectRingtone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_start_fake_call"/>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Update 3/3/2022
+  -->
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:top="2dp"
+        android:left="2dp"
+        android:bottom="2dp"
+        android:right="2dp">
+
+        <shape android:dither="false">
+
+            <corners android:radius="32dp" />
+
+            <gradient
+                android:angle="90"
+                android:endColor="#00000000"
+                android:startColor="#10000000" />
+
+        </shape>
+
+    </item>
+
+    <item
+        android:top="2dp"
+        android:left="2dp"
+        android:bottom="2dp"
+        android:right="2dp">
+
+        <shape>
+
+            <solid android:color="#EF881F1F" />
+
+            <corners android:radius="32dp" />
+
+        </shape>
+    </item>
+</layer-list>

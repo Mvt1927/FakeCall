@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) Mvt1927
+  ~ Update 2/3/2022
+  -->
+<resources>
+    <string name="app_name">Fake Call</string>
+    <string name="textBtnMessage">Tin nhắn</string>
+    <string name="textBtnSilent">Im lặng</string>
+    <string name="numberPhone">Số điện thoại</string>
+    <string name="location">Vị trí</string>
+    <string name="name">Tên</string>
+    <string name="avatar">Hình đại diện</string>
+    <string name="ringtone">Nhạc chuông</string>
+    <string name="Voice">Giọng nói</string>
+    <string name="start">Bắt đầu</string>
+    <string name="background">Hình nền</string>
+    <string name="text_cancel">Hủy</string>
+    <string name="text_default">Mặc định</string>
+    <string name="text_import">Thêm</string>
+    <string name="change_background">Thay hình nền</string>
+    <string name="change_background_message">Thay đổi hình nền đằng sau cuộc gọi</string>
+    <string name="back_message">Nhấn lại lần nữa để rời khỏi ứng dụng</string>
+    <string name="up_avatar_succ">Tải lên hình ảnh thành công</string>
+    <string name="up_avatar_fal">Tải lên hình ảnh không thành công</string>
+    <string name="cancel_crop">Cắt hình ảnh đã bị hủy bỏ</string>
+    <string name="un_load_image">Không nhận được hình ảnh dùng ảnh mặc định thay thế</string>
+</resources>
