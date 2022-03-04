@@ -67,8 +67,8 @@ class CallingActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calling)
-        getImageBackground()
         sharedPref = getSharedPreferences("file",0)
+        getImageBackground()
         nameEditText = findViewById(R.id.nameEditText)
         phoneEditText = findViewById(R.id.phoneEditText)
         locationEditText = findViewById(R.id.locationEditText)
@@ -143,9 +143,13 @@ class CallingActivity: AppCompatActivity() {
     private fun getImageBackground(){
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
-            val imageBackground:Drawable? = peekWallpaper()
+            var imageBackground:Drawable? = peekWallpaper()
+            var imageBackgroundPath = sharedPref.getString(BACKGROUND,DEFAULT_TEXT)
+            if (imageBackgroundPath != ""){
+                imageBackground = Drawable.createFromPath(imageBackgroundPath)
+            }
             if (imageBackground!=null){
-                val blurredBitmap: Bitmap = BlurBuilder.blur(this,imageBackground.toBitmap() )
+                val blurredBitmap: Bitmap = BlurBuilder.blur(this,imageBackground.toBitmap())
                 val background:ConstraintLayout = findViewById(R.id.background)
 //                background.background = blurredBitmap.toDrawable(resources)
                 background.setBackgroundDrawable(BitmapDrawable(resources,blurredBitmap))

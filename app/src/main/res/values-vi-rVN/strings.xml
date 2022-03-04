@@ -20,8 +20,16 @@
     <string name="change_background">Thay hình nền</string>
     <string name="change_background_message">Thay đổi hình nền đằng sau cuộc gọi</string>
     <string name="back_message">Nhấn lại lần nữa để rời khỏi ứng dụng</string>
-    <string name="up_avatar_succ">Tải lên hình ảnh thành công</string>
-    <string name="up_avatar_fal">Tải lên hình ảnh không thành công</string>
+    <string name="up_image_success">Tải lên hình ảnh thành công</string>
+    <string name="up_image_false">Tải lên hình ảnh không thành công</string>
     <string name="cancel_crop">Cắt hình ảnh đã bị hủy bỏ</string>
     <string name="un_load_image">Không nhận được hình ảnh dùng ảnh mặc định thay thế</string>
+    <string name="change_voice">Thay đổi giọng nói</string>
+    <string name="change_voice_message">Thay đổi giọng nói của người gọi khi chấp nhận cuộc gọi</string>
+    <string name="change_ringtone_message">Thay đổi nhạc chuông thông báo cuộc gọi</string>
+    <string name="change_ringtone">Thay đổi nhạc chuông</string>
+    <string name="s_change_avatar_mess">Thay đổi hình đại diện người gọi</string>
+    <string name="s_change_avatar_title">Thay đổi hình đại diện</string>
+    <string name="s_change_to_default">Đã thay đổi thành mặc định</string>
+    <string name="cancel_pick">Hoạt động chọn đã bị hủy</string>
 </resources>

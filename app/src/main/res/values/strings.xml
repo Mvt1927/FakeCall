@@ -20,12 +20,21 @@
     <string name="back_message">Press back again to leave the app</string>
     <string name="change_background">Change background</string>
     <string name="change_background_message">Change the background image behind the call</string>
+
+    <string name="change_voice">Change voice</string>
+    <string name="change_voice_message">Change caller voice when accepting calls</string>
+
+    <string name="change_ringtone">Change ringtone</string>
+    <string name="change_ringtone_message">Change ringtone when someone calls</string>
+
     <string name="appFolder" translatable="false">/Mvt1927Project/FakeCall/</string>
     <string name="backgroundImagePath" translatable="false">Image/Background.jpg</string>
     <string name="avatarImagePath" translatable="false">Image/Avatar.jpg</string>
-    <string name="up_avatar_succ">Image upload success</string>
-    <string name="up_avatar_fal">Image upload failed</string>
+    <string name="up_image_success">Image upload success</string>
+    <string name="up_image_false">Image upload failed</string>
     <string name="cancel_crop">Crop image has been canceled</string>
+    <string name="cancel_pick">Pick activity has been canceled</string>
+    <string name="s_change_to_default">Changed to default</string>
     <string name="un_load_image">Unable to receive images using default image instead</string>
     <string name="s_change_avatar_title">Change avatar</string>
     <string name="s_change_avatar_mess">Change caller avatar</string>
