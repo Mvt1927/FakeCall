@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Create 4/3/2022
+  -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -91,23 +95,25 @@
                 tools:ignore="LabelFor" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
     <Button
         android:id="@+id/btnSelectBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="120dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/inputHeight"
+        android:layout_marginBottom="@dimen/smallMar"
         android:hint="@string/background"
+        android:minWidth="120dp"
         android:padding="10dp"
         android:textColorHint="#ffffff"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginTop="@dimen/inputHeight"
-        android:layout_marginBottom="@dimen/smallMar"
-        app:layout_constraintTop_toBottomOf="@id/InputPhoneAndLocationLayout"
+        app:layout_constraintBottom_toTopOf="@id/btnSelectRingtone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnSelectRingtone" />
+        app:layout_constraintTop_toBottomOf="@id/InputPhoneAndLocationLayout" />
+
     <Button
         android:id="@+id/btnSelectRingtone"
         android:layout_width="wrap_content"

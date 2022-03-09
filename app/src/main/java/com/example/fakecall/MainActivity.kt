@@ -2,7 +2,6 @@ package com.example.fakecall
 
 import android.Manifest
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Point
@@ -46,7 +45,6 @@ class MainActivity : AppCompatActivity(),CustomDialog.CustomDialogListener{
     }
     private var backPressedTime: Long = 0
     private var isCustomDialogShow:Boolean = false
-
     private lateinit var nameEditText:EditText
     private lateinit var phoneEditText: EditText
     private lateinit var locationEditText: EditText
@@ -59,7 +57,6 @@ class MainActivity : AppCompatActivity(),CustomDialog.CustomDialogListener{
     private lateinit var btnRingtone: Button
     private lateinit var btnVoice: Button
     private lateinit var btnStart: ImageButton
-    lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,7 +125,7 @@ class MainActivity : AppCompatActivity(),CustomDialog.CustomDialogListener{
 
     private fun onBtnSetRingtoneClick() {
         //        3 -> Ringtone
-        val customDialog = CustomDialog(this,4,getString(R.string.change_ringtone),getString(R.string.change_ringtone_message))
+        val customDialog = CustomDialog(this,3,getString(R.string.change_ringtone),getString(R.string.change_ringtone_message))
         if (!isCustomDialogShow){
             isCustomDialogShow = true
             customDialog.show(supportFragmentManager,"CustomDialog_ID3")
@@ -383,8 +380,8 @@ class MainActivity : AppCompatActivity(),CustomDialog.CustomDialogListener{
                 performCrop(data!!.data!!,requestCode)
             }else CustomToast.warning(this,getString(R.string.cancel_pick))
             3 -> if (resultCode == -1){
-                val ringtone = getRealPathFromURI(data?.data)
-                saveData(RINGTONE,ringtone)
+                val ringtonePath = getRealPathFromURI(data?.data)
+                saveData(RINGTONE,ringtonePath)
                 CustomToast.success(this,getString(R.string.up_image_success))
             }else CustomToast.warning(this,getString(R.string.cancel_pick))
             4 -> if (resultCode == -1){

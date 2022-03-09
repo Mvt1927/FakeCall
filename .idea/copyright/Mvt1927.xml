@@ -1,7 +1,7 @@
 <component name="CopyrightManager">
   <copyright>
     <option name="allowReplaceRegexp" value="Copyright (c) Mvt1927  Update $today.day/$today.month/$today.year" />
-    <option name="notice" value="Copyright (c) &amp;#36;today.year Mvt1927 &#10;Update &amp;#36;today.day/&amp;#36;today.month/&amp;#36;today.year" />
+    <option name="notice" value="Copyright (c) &amp;#36;today.year Mvt1927&#10;Create &amp;#36;today.day/&amp;#36;today.month/&amp;#36;today.year" />
     <option name="myName" value="Mvt1927" />
   </copyright>
 </component>
