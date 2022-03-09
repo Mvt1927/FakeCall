@@ -1,8 +1,9 @@
 /*******************************************************************************
- * Copyright (c) Mvt1927
- * Update 23/2/2022
+ * Copyright (c) 2022 Mvt1927
+ * Create 23/2/2022
  */
 
+@file:Suppress("DEPRECATION")
 
 package com.example.fakecall
 
@@ -17,40 +18,46 @@ import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.media.Ringtone
 import android.media.RingtoneManager
-import android.os.Build
-import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.os.*
 import android.provider.Settings
 import android.view.Window
 import android.view.WindowManager
 import android.widget.GridLayout
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.net.toUri
 
+class CallingActivity: AppCompatActivity(){
 
-class CallingActivity: AppCompatActivity() {
+    companion object {
+        private const val NAME: String = "name"
+        private const val PHONE: String = "phone"
+        private const val LOCATION: String = "location"
+        private const val AVATAR:String = "avatar"
+        private const val RINGTONE:String = "ringtone"
+        private const val DEFAULT_TEXT: String = ""
+    }
 
-    private val NAME: String = "name"
-    private val PHONE: String = "phone"
-    private val LOCATION: String = "location"
-    private val AVATAR:String = "avatar"
-    private val BACKGROUND:String = "background"
-    private val DEFAULT_TEXT: String = ""
+    private val mInterval:Long = 35000
 
+    private var close:Boolean = false
 
     private lateinit var ringtone: Ringtone
     private lateinit var vibrationEffect: VibrationEffect
     private lateinit var vibrator:Vibrator
-    private lateinit var audioManager: AudioManager
-    private var status = -1;
-    private lateinit var returnIntent:Intent;
+    lateinit var audioManager: AudioManager
+    private var statusNotification = -1;
+    private lateinit var returnIntent:Intent
+
+    private lateinit var ringtonePath:String
+
+    private lateinit var mHandler: Handler
 
     lateinit var sharedPref: SharedPreferences
 
@@ -59,127 +66,173 @@ class CallingActivity: AppCompatActivity() {
     lateinit var locationEditText: TextView
     lateinit var avatarImageView:ImageView
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private var backPressedTime:Long = 0
-    lateinit var backToast:Toast
+    private lateinit var denyCall:ImageButton
+    lateinit var silent:GridLayout
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calling)
+
         sharedPref = getSharedPreferences("file",0)
-        getImageBackground()
         nameEditText = findViewById(R.id.nameEditText)
         phoneEditText = findViewById(R.id.phoneEditText)
         locationEditText = findViewById(R.id.locationEditText)
         avatarImageView = findViewById(R.id.Avatar)
+        denyCall = findViewById(R.id.btn_deny_call)
+        silent = findViewById(R.id.btn_silent)
 
+        vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        mHandler = Handler()
+
+        denyCall.setOnClickListener { onBtnDenyCallClick() }
+        silent.setOnClickListener {
+            onBtnSilentClick()
+        }
+
+        setFitAndTransparentBackground()
+        setCaller()
+        startRepeatingTask()
+        startNotification()
+    }
+
+    private fun startRepeatingTask(){
+        mStatusChecker.run()
+    }
+
+    private fun stopRepeatingTask(){
+        mHandler.removeCallbacks(mStatusChecker)
+    }
+
+    var mStatusChecker: Runnable = object : Runnable {
+        override fun run() {
+            try {
+                if (close)
+                    closeActivity()
+                else close = true
+            } finally {
+                // 100% guarantee that this always happens, even if
+                // your update method throws an exception
+                mHandler.postDelayed(this, mInterval)
+            }
+        }
+    }
+
+    private fun closeActivity(){
+        when (statusNotification){
+            1 -> ringtone.stop()
+            0 -> vibrator.cancel()
+        }
+        this.finish()
+    }
+
+    private fun setCaller(){
         val name = sharedPref.getString(NAME,DEFAULT_TEXT)
         val phone = sharedPref.getString(PHONE,DEFAULT_TEXT)
         val location = sharedPref.getString(LOCATION,DEFAULT_TEXT)
         val avatar = sharedPref.getString(AVATAR,DEFAULT_TEXT)
+        val ringtone = sharedPref.getString(RINGTONE, DEFAULT_TEXT)
 
-        nameEditText.setText(name)
-        phoneEditText.setText(phone)
-        locationEditText.setText(location)
-        if (avatar!=null&&Drawable.createFromPath(avatar)!=null)
-            avatarImageView.setImageDrawable(Drawable.createFromPath(avatar))
-        else {
-            avatarImageView.setImageResource(R.drawable.ic_baseline_account_circle_24)
-        }
+        nameEditText.text = name
+        phoneEditText.text = phone
+        locationEditText.text = location
+        setImageBackground(avatar)
+        ringtonePath = ringtone.toString()
+    }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            val w: Window = window
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                w.setDecorFitsSystemWindows(false)
-            }
-            w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            w.statusBarColor = ContextCompat.getColor(this,R.color.invisible);
-            w.navigationBarColor= ContextCompat.getColor(this,R.color.invisible)
-        }
-        vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        val ringerMode = audioManager.ringerMode
-        val denyCall:ImageView = findViewById(R.id.btn_deny_call)
-        val silent:GridLayout = findViewById(R.id.btn_silent)
-        //play ring stone
-        ringtone = RingtoneManager.getRingtone(this,Settings.System.DEFAULT_RINGTONE_URI)
-        when(ringerMode){
+    private fun setFitAndTransparentBackground(){
+        val w: Window = window
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            w.setDecorFitsSystemWindows(false)
+        }else w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        w.statusBarColor = ContextCompat.getColor(this,R.color.invisible);
+        w.navigationBarColor= ContextCompat.getColor(this,R.color.invisible)
+    }
+
+    private fun startNotification(){
+        when(audioManager.ringerMode){
             AudioManager.RINGER_MODE_NORMAL -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                    ringtone.isLooping=true
-                    status = 1;
-                    ringtone.play()
-                }
+                makeRingtone()
             }
             AudioManager.RINGER_MODE_VIBRATE -> makePhoneVibrate()
         }
-        //
-        denyCall.setOnClickListener { onBtnDenyCallClick() }
-        silent.setOnClickListener { onBtnSilentClick() }
     }
+    private fun stopNotification(){
+
+    }
+
 
     private fun onBtnDenyCallClick(){
         val denyCall = Intent(this,MainActivity::class.java)
         startActivity(denyCall)
-        when (status){
+        when (statusNotification){
             1 -> ringtone.stop()
             0 -> vibrator.cancel()
         }
         finish()
     }
-    @RequiresApi(Build.VERSION_CODES.M)
     fun onBtnSilentClick(){
         val img: ImageView = findViewById(R.id.btn_silent_img)
         val text: TextView = findViewById(R.id.btn_silent_text)
 
-        img.setColorFilter(getColor(R.color.blue))
-        text.setTextColor(getColor(R.color.blue))
-        when (status){
-            1 -> ringtone.stop()
-            0 -> vibrator.cancel()
+        img.setColorFilter(resources.getColor(R.color.blue))
+        text.setTextColor(resources.getColor(R.color.blue))
+            when (statusNotification){
+                1 -> ringtone.stop()
+                0 -> vibrator.cancel()
         }
     }
-    private fun getImageBackground(){
-        if (ContextCompat.checkSelfPermission(this,
+    private fun setImageBackground(path:String? = ""){
+        if (ContextCompat.checkSelfPermission(
+                this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
-            var imageBackground:Drawable? = peekWallpaper()
-            var imageBackgroundPath = sharedPref.getString(BACKGROUND,DEFAULT_TEXT)
-            if (imageBackgroundPath != ""){
-                imageBackground = Drawable.createFromPath(imageBackgroundPath)
-            }
-            if (imageBackground!=null){
-                val blurredBitmap: Bitmap = BlurBuilder.blur(this,imageBackground.toBitmap())
-                val background:ConstraintLayout = findViewById(R.id.background)
-//                background.background = blurredBitmap.toDrawable(resources)
-                background.setBackgroundDrawable(BitmapDrawable(resources,blurredBitmap))
-            }
-        }
+                    var imageBackground:Drawable?
+                    if (path != ""){
+                        imageBackground = Drawable.createFromPath(path)
+                    }else imageBackground = peekWallpaper()
+                    if (imageBackground != null){
+                        val blurredBitmap: Bitmap = BlurBuilder.blur(this,imageBackground.toBitmap())
+                        val background:ConstraintLayout = findViewById(R.id.background)
+                        background.setBackgroundDrawable(BitmapDrawable(resources,blurredBitmap))
+                    }
+                }
     }
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun makePhoneVibrate(){
-        status = 0
-        val mVibratePattern:LongArray = longArrayOf(1000, 800, 1000, 800, 1000, 800, 1000)
-        val mAmplitudes:IntArray = intArrayOf(0, -1, 0, -1, 0, -1, 0)
-        if (ContextCompat.checkSelfPermission(this,
+    private fun makePhoneVibrate(){
+        statusNotification = 0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val mVibratePattern:LongArray = longArrayOf(1000, 800, 1000, 800, 1000, 800, 1000)
+            val mAmplitudes:IntArray = intArrayOf(0, -1, 0, -1, 0, -1, 0)
+            if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.VIBRATE)==PackageManager.PERMISSION_GRANTED){
-            if (vibrator.hasVibrator()) {
-                vibrationEffect = VibrationEffect.createWaveform(mVibratePattern, mAmplitudes, 1)
-                vibrator.vibrate(vibrationEffect)
-            }
+                    if (vibrator.hasVibrator()) {
+                        vibrationEffect = VibrationEffect.createWaveform(mVibratePattern, mAmplitudes, 1)
+                        vibrator.vibrate(vibrationEffect)
+                    }
+                }
         }
     }
-    @RequiresApi(Build.VERSION_CODES.O)
+    fun makeRingtone(){
+        statusNotification = 1
+        ringtone = if (ringtonePath!="")
+            RingtoneManager.getRingtone(this, ringtonePath.toUri())
+        else RingtoneManager.getRingtone(this,Settings.System.DEFAULT_RINGTONE_URI)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            ringtone.isLooping=true
+        }
+        ringtone.play()
+    }
     override fun onResume() {
         super.onResume()
-        when (status){
+        when (statusNotification){
             1 -> ringtone.play()
             0 -> makePhoneVibrate()
         }
     }
     override fun onPause() {
         super.onPause()
-        when (status){
+        when (statusNotification){
             1 -> ringtone.stop()
             0 -> vibrator.cancel()
         }
@@ -187,7 +240,8 @@ class CallingActivity: AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        when (status){
+        stopRepeatingTask()
+        when (statusNotification){
             1 -> ringtone.stop()
             0 -> vibrator.cancel()
         }
