@@ -51,23 +51,22 @@ class CallingActivity: AppCompatActivity(){
     private lateinit var ringtone: Ringtone
     private lateinit var vibrationEffect: VibrationEffect
     private lateinit var vibrator:Vibrator
-    lateinit var audioManager: AudioManager
-    private var statusNotification = -1;
-    private lateinit var returnIntent:Intent
+    private lateinit var audioManager: AudioManager
+    private var statusNotification = -1
 
     private lateinit var ringtonePath:String
 
     private lateinit var mHandler: Handler
 
-    lateinit var sharedPref: SharedPreferences
+    private lateinit var sharedPref: SharedPreferences
 
-    lateinit var nameEditText: TextView
-    lateinit var phoneEditText: TextView
-    lateinit var locationEditText: TextView
-    lateinit var avatarImageView:ImageView
+    private lateinit var nameEditText: TextView
+    private lateinit var phoneEditText: TextView
+    private lateinit var locationEditText: TextView
+    private lateinit var avatarImageView:ImageView
 
     private lateinit var denyCall:ImageButton
-    lateinit var silent:GridLayout
+    private lateinit var silent:GridLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +92,7 @@ class CallingActivity: AppCompatActivity(){
 
         setFitAndTransparentBackground()
         setCaller()
-        startRepeatingTask()
+        this.startRepeatingTask()
         startNotification()
     }
 
@@ -105,7 +104,7 @@ class CallingActivity: AppCompatActivity(){
         mHandler.removeCallbacks(mStatusChecker)
     }
 
-    var mStatusChecker: Runnable = object : Runnable {
+    private var mStatusChecker: Runnable = object : Runnable {
         override fun run() {
             try {
                 if (close)
@@ -120,10 +119,7 @@ class CallingActivity: AppCompatActivity(){
     }
 
     private fun closeActivity(){
-        when (statusNotification){
-            1 -> ringtone.stop()
-            0 -> vibrator.cancel()
-        }
+        stopNotification()
         this.finish()
     }
 
@@ -146,8 +142,8 @@ class CallingActivity: AppCompatActivity(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             w.setDecorFitsSystemWindows(false)
         }else w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        w.statusBarColor = ContextCompat.getColor(this,R.color.invisible);
+        w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        w.statusBarColor = ContextCompat.getColor(this,R.color.invisible)
         w.navigationBarColor= ContextCompat.getColor(this,R.color.invisible)
     }
 
@@ -160,38 +156,32 @@ class CallingActivity: AppCompatActivity(){
         }
     }
     private fun stopNotification(){
-
+        when (statusNotification){
+            1 -> ringtone.stop()
+            0 -> vibrator.cancel()
+        }
+        statusNotification = -1
     }
 
 
     private fun onBtnDenyCallClick(){
         val denyCall = Intent(this,MainActivity::class.java)
         startActivity(denyCall)
-        when (statusNotification){
-            1 -> ringtone.stop()
-            0 -> vibrator.cancel()
-        }
+        stopNotification()
         finish()
     }
-    fun onBtnSilentClick(){
+    private fun onBtnSilentClick(){
         val img: ImageView = findViewById(R.id.btn_silent_img)
         val text: TextView = findViewById(R.id.btn_silent_text)
-
         img.setColorFilter(resources.getColor(R.color.blue))
         text.setTextColor(resources.getColor(R.color.blue))
-            when (statusNotification){
-                1 -> ringtone.stop()
-                0 -> vibrator.cancel()
-        }
+        stopNotification()
     }
     private fun setImageBackground(path:String? = ""){
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
-                    var imageBackground:Drawable?
-                    if (path != ""){
-                        imageBackground = Drawable.createFromPath(path)
-                    }else imageBackground = peekWallpaper()
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
+            val imageBackground:Drawable? = if (path != ""){
+                Drawable.createFromPath(path)
+            }else peekWallpaper()
                     if (imageBackground != null){
                         val blurredBitmap: Bitmap = BlurBuilder.blur(this,imageBackground.toBitmap())
                         val background:ConstraintLayout = findViewById(R.id.background)
@@ -213,7 +203,7 @@ class CallingActivity: AppCompatActivity(){
                 }
         }
     }
-    fun makeRingtone(){
+    private fun makeRingtone(){
         statusNotification = 1
         ringtone = if (ringtonePath!="")
             RingtoneManager.getRingtone(this, ringtonePath.toUri())
@@ -225,32 +215,24 @@ class CallingActivity: AppCompatActivity(){
     }
     override fun onResume() {
         super.onResume()
-        when (statusNotification){
-            1 -> ringtone.play()
-            0 -> makePhoneVibrate()
-        }
+        startNotification()
     }
     override fun onPause() {
         super.onPause()
-        when (statusNotification){
-            1 -> ringtone.stop()
-            0 -> vibrator.cancel()
-        }
+        stopNotification()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         stopRepeatingTask()
-        when (statusNotification){
-            1 -> ringtone.stop()
-            0 -> vibrator.cancel()
-        }
+        stopNotification()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBackPressed() {
         val denyCall = Intent(this,MainActivity::class.java)
         startActivity(denyCall)
+        stopNotification()
         finish()
     }
 }
