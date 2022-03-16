@@ -1,28 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ~ Copyright (c) 2022 Mvt1927
   ~ Create 4/3/2022
   -->
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintTop_toTopOf="parent"
     tools:context=".MainActivity">
+
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/Avatar"
-        app:civ_border="false"
         android:layout_width="@dimen/DefaultDimenAvatar"
         android:layout_height="@dimen/DefaultDimenAvatar"
         android:layout_marginTop="@dimen/ImageMarginTop"
         android:layout_marginBottom="@dimen/smallMar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/avatar"
+        android:src="@drawable/ic_avatar"
+        app:civ_border="false"
+        app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@id/NameInputLayout"
-        android:src="@drawable/ic_baseline_account_circle_24"
-        android:contentDescription="@string/avatar" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/NameInputLayout"
@@ -31,10 +32,11 @@
         android:layout_marginTop="@dimen/smallMar"
         android:layout_marginBottom="@dimen/smallMar"
         android:textStyle="normal"
-        app:layout_constraintTop_toBottomOf="@id/Avatar"
         app:layout_constraintBottom_toTopOf="@id/InputPhoneAndLocationLayout"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Avatar">
+
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="wrap_content"
@@ -53,17 +55,19 @@
         android:id="@+id/InputPhoneAndLocationLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/smallMar"
         android:gravity="center"
         android:textAlignment="center"
-        android:layout_marginTop="@dimen/smallMar"
-        app:layout_constraintTop_toBottomOf="@id/NameInputLayout"
+        app:layout_constraintBottom_toTopOf="@id/time_radio_group"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnSelectRingtone">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/NameInputLayout">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/phoneEditText"
                 android:layout_width="match_parent"
@@ -81,6 +85,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/locationEditText"
                 android:layout_width="wrap_content"
@@ -96,12 +101,58 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
+    <RadioGroup
+        android:id="@+id/time_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintBottom_toTopOf="@id/btnSelectBackground"
+        app:layout_constraintTop_toBottomOf="@id/InputPhoneAndLocationLayout"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:text="@string/time"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="5sp"
+            android:buttonTint="@color/radio_button_color"
+            android:text="@string/_now" />
+
+        <RadioButton
+            android:id="@+id/_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:buttonTint="@color/radio_button_color"
+            android:text="@string/_5_minute" />
+
+        <RadioButton
+            android:id="@+id/_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/radio_button_color"
+            android:text="@string/_10_minute" />
+
+    </RadioGroup>
+
     <Button
         android:id="@+id/btnSelectBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/inputHeight"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="@dimen/smallMar"
         android:hint="@string/background"
         android:minWidth="120dp"
@@ -112,53 +163,54 @@
         app:layout_constraintBottom_toTopOf="@id/btnSelectRingtone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/InputPhoneAndLocationLayout" />
+        app:layout_constraintTop_toBottomOf="@id/time_radio_group" />
 
     <Button
         android:id="@+id/btnSelectRingtone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="120dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/smallMar"
+        android:layout_marginBottom="@dimen/smallMar"
         android:hint="@string/ringtone"
+        android:minWidth="120dp"
         android:padding="10dp"
         android:textColorHint="#ffffff"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginTop="@dimen/smallMar"
-        android:layout_marginBottom="@dimen/smallMar"
-        app:layout_constraintTop_toBottomOf="@id/btnSelectBackground"
+        app:layout_constraintBottom_toTopOf="@id/btnAddVoice"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnAddVoice" />
+        app:layout_constraintTop_toBottomOf="@id/btnSelectBackground" />
+
     <Button
         android:id="@+id/btnAddVoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="120dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/smallMar"
         android:layout_marginBottom="@dimen/inputHeight"
         android:hint="@string/Voice"
+        android:minWidth="120dp"
         android:padding="10dp"
         android:textColorHint="#ffffff"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintTop_toBottomOf="@id/btnSelectRingtone"
+        app:layout_constraintBottom_toTopOf="@id/btn_start_fake_call"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_start_fake_call"/>
+        app:layout_constraintTop_toBottomOf="@id/btnSelectRingtone" />
 
     <ImageButton
         android:id="@+id/btn_start_fake_call"
         android:layout_width="@dimen/dimenBtnStart"
         android:layout_height="@dimen/dimenBtnStart"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/inputHeight"
         android:background="@drawable/call_green"
         android:contentDescription="@string/start"
-        android:layout_marginBottom="@dimen/inputHeight"
-        app:layout_constraintTop_toBottomOf="@id/btnAddVoice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-  </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAddVoice" />
+</androidx.constraintlayout.widget.ConstraintLayout>

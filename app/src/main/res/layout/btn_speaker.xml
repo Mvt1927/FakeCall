@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Create 13/3/2022
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/speaker_layout"
+        android:layout_width="52sp"
+        android:layout_height="52sp"
+        tools:ignore="UselessParent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_speaker"
+            android:layout_width="52sp"
+            android:layout_height="52sp"
+            android:backgroundTint="@color/invisible_full"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:outlineAmbientShadowColor="@color/invisible_full"
+            android:outlineSpotShadowColor="@color/invisible_full"
+            app:cornerRadius="100pt"
+            app:icon="@drawable/ic_on_call_speaker"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="26sp"
+            app:iconTint="@color/Light"
+            app:rippleColor="@color/LightVariant"
+            app:strokeColor="@color/invisible_full"
+            tools:ignore="UnusedAttribute" />
+    </FrameLayout>
+</LinearLayout>

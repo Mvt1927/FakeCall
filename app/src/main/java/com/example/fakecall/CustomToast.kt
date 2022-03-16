@@ -23,26 +23,84 @@ object CustomToast {
     private const val WarningColor = R.color.Warning
     private const val WarningTextColor = R.color.TextWarning
 
-    fun success(context: Context, text:CharSequence?="Success toast", T:Int = SuccessTextColor, B: Int = SuccessColor, duration: Int = Toast.LENGTH_SHORT ){
-        val b = getColor(context,B)
-        val t = getColor(context,T)
-        DynamicToast.make(context, text,getDrawable(context, R.drawable.ic_icon_success), t, b).show()
+    fun success(
+        context: Context,
+        text: CharSequence? = "Success toast",
+        T: Int = SuccessTextColor,
+        B: Int = SuccessColor,
+        duration: Int = Toast.LENGTH_SHORT,
+    ) {
+        val b = getColor(context, B)
+        val t = getColor(context, T)
+        DynamicToast.make(
+            context,
+            text,
+            getDrawable(context, R.drawable.ic_custom_toast_success),
+            t,
+            b,
+            duration
+        )
+            .show()
     }
-    fun warning(context: Context, text:CharSequence?="Warning toast", T:Int = WarningTextColor, B: Int = WarningColor, duration: Int = Toast.LENGTH_SHORT ){
-        val b = getColor(context,B)
-        val t = getColor(context,T)
-        DynamicToast.make(context, text,getDrawable(context, R.drawable.ic_icon_warning), t, b).show()
+
+    fun warning(
+        context: Context,
+        text: CharSequence? = "Warning toast",
+        T: Int = WarningTextColor,
+        B: Int = WarningColor,
+        duration: Int = Toast.LENGTH_SHORT,
+    ) {
+        val b = getColor(context, B)
+        val t = getColor(context, T)
+        DynamicToast.make(
+            context,
+            text,
+            getDrawable(context, R.drawable.ic_custom_toast_warning),
+            t,
+            b,
+            duration
+        )
+            .show()
     }
-    fun info(context: Context, text:CharSequence?="Info toast", T:Int = InfoTextColor, B: Int = InfoColor, duration: Int = Toast.LENGTH_SHORT ){
-        val b = getColor(context,B)
-        val t = getColor(context,T)
+
+    fun info(
+        context: Context,
+        text: CharSequence? = "Info toast",
+        T: Int = InfoTextColor,
+        B: Int = InfoColor,
+        duration: Int = Toast.LENGTH_SHORT,
+    ) {
+        val b = getColor(context, B)
+        val t = getColor(context, T)
         DynamicToast.Config.getInstance().setDefaultTintColor(t)
-        DynamicToast.make(context, text,getDrawable(context, R.drawable.ic_icon_info), t, b).show()
+        DynamicToast.make(
+            context,
+            text,
+            getDrawable(context, R.drawable.ic_custom_toast_info),
+            t,
+            b,
+            duration
+        ).show()
     }
-    fun danger(context: Context, text:CharSequence?="Danger toast", T:Int = DangerTextColor, B: Int = DangerColor, duration: Int = Toast.LENGTH_SHORT ){
-        val b = getColor(context,B)
-        val t = getColor(context,T)
-        DynamicToast.make(context, text,getDrawable(context, R.drawable.ic_icon_danger), t, b).show()
+
+    fun danger(
+        context: Context,
+        text: CharSequence? = "Danger toast",
+        T: Int = DangerTextColor,
+        B: Int = DangerColor,
+        duration: Int = Toast.LENGTH_SHORT,
+    ) {
+        val b = getColor(context, B)
+        val t = getColor(context, T)
+        DynamicToast.make(
+            context,
+            text,
+            getDrawable(context, R.drawable.ic_custom_toast_danger),
+            t,
+            b,
+            duration
+        )
+            .show()
     }
 
 }

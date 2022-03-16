@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.FakeCall" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -15,10 +15,10 @@
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowContentOverlay">@null</item>
-<!--        <item name="android:statusBarColor">#00FFFFFF</item>-->
-<!--        <item name="android:windowTranslucentNavigation">true</item>-->
+        <!--        <item name="android:windowFullscreen">false</item>-->
+        <!--        <item name="android:windowContentOverlay">@null</item>-->
+        <!--        <item name="android:statusBarColor">#00FAFF</item>-->
+        <!--        <item name="android:windowTranslucentNavigation">true</item>-->
     </style>
 
     <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
@@ -32,4 +32,5 @@
     <style name="NeutralButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/Danger</item>
     </style>
+
 </resources>

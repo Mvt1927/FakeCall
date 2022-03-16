@@ -1,0 +1,39 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Create 10/3/2022
+  ~ 436/500
+  ~ stroke 24
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="500"
+    android:viewportHeight="500">
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M32,55.146C32,42.366 42.492,32 55.435,32L445.297,32C457.833,32 468,42.044 468,54.43L468,367.665C468,380.604 457.382,391.088 444.291,391.088L146.223,391.088C140.703,391.088 135.33,392.845 130.903,396.101L33.272,467.843C33.031,468.02 32.705,468.052 32.44,467.914C32.173,467.783 32,467.514 32,467.217L32,55.146Z"
+        android:strokeWidth="24"
+        android:strokeColor="#fff"
+        android:strokeLineCap="butt"
+        android:strokeLineJoin="miter" />
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M154.625,252.959L294.035,252.959L342.045,252.959"
+        android:strokeWidth="24"
+        android:strokeColor="#fff"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="miter" />
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M154.625,167.451L294.029,167.451L342.038,167.451"
+        android:strokeWidth="24"
+        android:strokeColor="#fff"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

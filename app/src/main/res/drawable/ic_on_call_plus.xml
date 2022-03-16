@@ -1,0 +1,28 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Kbu
+  ~ Create 17/3/2022
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="500"
+    android:viewportHeight="500">
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M249.427,43.364L249.427,457.288"
+        android:strokeWidth="24"
+        android:strokeColor="#000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="miter" />
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M456.389,250.326L208.724,250.326L42.465,250.326"
+        android:strokeWidth="24"
+        android:strokeColor="#000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="miter" />
+</vector>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Create 13/3/2022
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="52sp"
+        android:layout_height="52sp"
+        tools:ignore="UselessParent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_numpad"
+            android:layout_width="52sp"
+            android:layout_height="52sp"
+            android:backgroundTint="@color/invisible_full"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:outlineAmbientShadowColor="@color/invisible_full"
+            android:outlineSpotShadowColor="@color/invisible_full"
+            app:icon="@drawable/ic_on_call_numpad"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="26sp"
+            app:iconTint="@color/Light"
+            app:rippleColor="@color/LightVariant"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Rounded"
+            tools:ignore="UnusedAttribute" />
+    </FrameLayout>
+</LinearLayout>

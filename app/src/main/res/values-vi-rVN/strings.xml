@@ -32,4 +32,17 @@
     <string name="s_change_avatar_title">Thay đổi hình đại diện</string>
     <string name="s_change_to_default">Đã thay đổi thành mặc định</string>
     <string name="cancel_pick">Hoạt động chọn đã bị hủy</string>
+    <string name="time_5">Cuộc gọi giả sẽ bắt đầu sau 5 phút</string>
+    <string name="time_10">Cuộc gọi giả sẽ bắt đầu sau 10 phút</string>
+    <string name="_now">Bây giờ</string>
+    <string name="_5_minute">5 phút</string>
+    <string name="_10_minute">10 phút</string>
+    <string name="time_0">Cuộc gọi giả sẽ bắt đầu ngay sau 1 vài giây</string>
+    <string name="time">Thời gian</string>
+    <string name="video">Video</string>
+    <string name="hold_on">Giữ máy</string>
+    <string name="record">Ghi âm</string>
+    <string name="plus">Thêm</string>
+    <string name="per">Bạn đã từ chối quyền truy cập vào bộ nhớ, bạn có thể phải tự vào mục cài đặt để cấp lại quyền cho ứng dụng này để sử dụng 1 số chức năng</string>
+    <string name="per0">Bạn đã từ chối quyền truy cập vào bộ nhớ, bạn có thể phải vào cài đặt cung cấp quyền truy cập bộ nhớ để sử dụng chức năng này</string>
 </resources>

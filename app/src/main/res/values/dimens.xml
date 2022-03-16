@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ~ Copyright (c) Mvt1927
   ~ Update 27/2/2022
   -->
 <resources>
     <dimen name="inputHeight">60dp</dimen>
-    <dimen name="DefaultDimenAvatar">120dp</dimen>
-    <dimen name="ImageMarginTop">30dp</dimen>
+    <dimen name="DefaultDimenAvatar">100dp</dimen>
+    <dimen name="ImageMarginTop">50dp</dimen>
     <dimen name="smallMar">5dp</dimen>
     <dimen name="dimenBtnStart">80dp</dimen>
 </resources>

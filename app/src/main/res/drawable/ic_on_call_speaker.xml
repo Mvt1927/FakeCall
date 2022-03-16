@@ -1,0 +1,47 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Create 10/3/2022
+  ~ 436/500
+  ~ stroke 24
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="500"
+    android:viewportHeight="500">
+    <!--  <path-->
+    <!--      android:pathData="M32,32L468,32L468,468L32,468L32,32Z"-->
+    <!--      android:strokeLineJoin="miter"-->
+    <!--      android:strokeWidth="0"-->
+    <!--      android:fillColor="#7C977E"-->
+    <!--      android:fillType="nonZero"-->
+    <!--      android:strokeColor="#1024D7"-->
+    <!--      android:strokeLineCap="butt"/>-->
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M42.055,190.332C42.055,179.059 50.585,169.921 61.107,169.921L142.664,169.921C143.677,169.921 144.656,169.531 145.423,168.824L257.176,65.91C258.166,64.998 259.428,64.498 260.734,64.498L278.735,64.498C282.964,64.498 286.395,68.172 286.395,72.705L286.395,427.799C286.395,432.053 283.177,435.502 279.207,435.502L260.028,435.502C259.177,435.502 258.357,435.177 257.712,434.582L145.548,331.291C144.701,330.51 143.618,330.079 142.499,330.079L61.602,330.079C50.805,330.079 42.055,320.703 42.055,309.137L42.055,190.332Z"
+        android:strokeWidth="24"
+        android:strokeColor="#000000"
+        android:strokeLineCap="butt"
+        android:strokeLineJoin="miter" />
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M351.986,180.588C351.986,180.588 420.106,236.341 351.986,322.501"
+        android:strokeWidth="24"
+        android:strokeColor="#000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="miter" />
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M412.532,141.029C412.532,141.029 514.711,235.301 412.532,358.97"
+        android:strokeWidth="24"
+        android:strokeColor="#000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="miter" />
+</vector>

@@ -1,0 +1,28 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Create 10/3/2022
+  ~ 500/500
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="500"
+    android:viewportHeight="500">
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M76.624,30.15C76.624,22.658 82.696,16.584 90.189,16.584L321.836,16.584C325.601,16.584 329.154,18.33 331.455,21.31L419.837,135.753C422.133,138.725 423.377,142.375 423.377,146.131L423.377,472.711C423.377,478.623 418.585,483.417 412.672,483.417L86.984,483.417C81.262,483.417 76.624,478.778 76.624,473.056L76.624,30.15Z"
+        android:strokeWidth="24"
+        android:strokeColor="#F72F3A"
+        android:strokeLineCap="butt"
+        android:strokeLineJoin="miter" />
+    <path
+        android:fillColor="#F72F3A"
+        android:fillType="nonZero"
+        android:pathData="M247.351,177.448L251.445,172.603L277.866,172.603L277.866,368.675L250.735,368.675L251.445,172.603L275.164,179.989L264.827,192.218C249.605,209.928 228.963,224.352 207.1,232.554L203.066,234.03L203.066,209.633C220.592,202.723 235.19,192.111 247.351,177.448Z"
+        android:strokeWidth="1"
+        android:strokeColor="#00000000"
+        android:strokeLineCap="butt"
+        android:strokeLineJoin="miter" />
+</vector>

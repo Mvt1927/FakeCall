@@ -4,30 +4,70 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/viett/.gradle/caches/transforms-3/d6d1b5dd601a0b90e252a597c7f60723/transformed/jetified-AwesomeDialog-2.0.5/res/drawable-anydpi-v21/ic_dialog_info.xml" value="0.124" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.178" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/call_green.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/circle_button.xml" value="0.178" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/circle_button_false.xml" value="0.178" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/circle_button_style.xml" value="0.178" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/circle_button_true.xml" value="0.178" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/custom_toast.xml" value="0.1585" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic__97cc37e_54eb_4b64_ba07_3cfca59fc881.xml" value="0.2265" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_accept_call.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_avatar.xml" value="0.1755" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_avatar_background.xml" value="0.124" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_bell_slash.xml" value="0.186" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_bell_slash_regular.xml" value="0.2265" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_bell_slash_thin_svgrepo_com.xml" value="0.124" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_call_message.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_custom_toast_warning.xml" value="0.1755" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_deny_call.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_hold_on.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_icon_count_time_on_call.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_icon_cout_time_oncall.xml" value="0.178" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_icon_danger.xml" value="0.1585" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_icon_info.xml" value="0.1585" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_icon_success.xml" value="0.1585" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_icon_warning.xml" value="0.1585" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_launcher_background.xml" value="0.178" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_message.xml" value="0.2265" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_message_svgrepo_com.xml" value="0.2265" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_message_svgrepo_com__1_.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_numpad.xml" value="0.178" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_count_time.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_hold_on.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_numpad.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_plus.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_record.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_silent.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_speaker.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_on_call_video.xml" value="0.124" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_record.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_sim_1.xml" value="0.2535" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_speaker.xml" value="0.178" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_svg.xml" value="0.2265" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_svg__2_.xml" value="0.2265" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_untitled__21_.xml" value="0.2535" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_untitled__24_.xml" value="0.2535" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_untitled__25_.xml" value="0.186" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/drawable/ic_video.xml" value="0.1755" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout-v28/btn_numpad.xml" value="0.16354166666666667" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout-v31/activity_calling.xml" value="0.1359375" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/activity_calling.xml" value="0.2" />
-        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_message.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_silent.xml" value="0.264" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/activity_oncalling.xml" value="0.264" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_call_silent.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_hold_on.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_message.xml" value="0.4" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_numpad.xml" value="0.14578879863189398" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_on_call_silent.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_plus.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_record.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_silent.xml" value="0.8800000000000001" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_speaker.xml" value="0.176" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/btn_video.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/custom_toast.xml" value="0.15104166666666666" />
+        <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/layout_information.xml" value="0.49206349206349204" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/layout/test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/mipmap-anydpi-v26/ic_avatar.xml" value="0.124" />
         <entry key="..\:/Users/viett/AndroidStudioProjects/FakeCall/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />

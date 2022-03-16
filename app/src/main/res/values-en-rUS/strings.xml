@@ -2,7 +2,7 @@
   ~ Copyright (c) Mvt1927
   ~ Update 2/3/2022
   -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Fake Call</string>
     <string name="numberPhone">Number phone</string>
     <string name="location">Location</string>
@@ -14,7 +14,7 @@
     <string name="textBtnSilent">Silent</string>
     <string name="textBtnMessage">Message</string>
     <string name="background">Background</string>
-    <string name="text_cancel">CANCEL</string>
+    <string name="text_cancel" tools:ignore="ButtonCase">CANCEL</string>
     <string name="text_default">DEFAULT</string>
     <string name="text_import">Import</string>
     <string name="change_background">Change background</string>
@@ -32,4 +32,17 @@
     <string name="s_change_avatar_title">Change avatar</string>
     <string name="s_change_avatar_mess">Change caller avatar</string>
     <string name="cancel_pick">Pick activity has been canceled</string>
+    <string name="time_0">Fake call will start in a few seconds</string>
+    <string name="time">Time:</string>
+    <string name="_10_minute">10 minute</string>
+    <string name="_5_minute">5 minute</string>
+    <string name="_now">Now</string>
+    <string name="time_5">Fake call will start in 5 minutes</string>
+    <string name="time_10">Fake call will start in 10 minutes</string>
+    <string name="video">Video</string>
+    <string name="hold_on">Hold on</string>
+    <string name="record">Record</string>
+    <string name="plus">Plus</string>
+    <string name="per">You have denied access to the storage, you may have to manually go into the settings to re-grant this app permission to use some functions.</string>
+    <string name="per0">You have denied access to memory, you may have to go into settings provide memory access to use this function</string>
 </resources>

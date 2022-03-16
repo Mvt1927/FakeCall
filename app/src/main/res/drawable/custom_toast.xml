@@ -2,14 +2,13 @@
   ~ Copyright (c) 2022 Mvt1927
   ~ Update 3/3/2022
   -->
-<layer-list
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:top="2dp"
-        android:left="2dp"
         android:bottom="2dp"
-        android:right="2dp">
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
 
         <shape android:dither="false">
 
@@ -25,10 +24,10 @@
     </item>
 
     <item
-        android:top="2dp"
-        android:left="2dp"
         android:bottom="2dp"
-        android:right="2dp">
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
 
         <shape>
 
