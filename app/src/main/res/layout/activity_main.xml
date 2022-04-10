@@ -111,7 +111,6 @@
         android:weightSum="1"
         app:layout_constraintBottom_toTopOf="@id/btnSelectBackground"
         app:layout_constraintTop_toBottomOf="@id/InputPhoneAndLocationLayout"
-
         >
 
         <TextView
@@ -121,38 +120,70 @@
             android:text="@string/time"
             android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/_0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginEnd="5sp"
-            android:buttonTint="@color/radio_button_color"
-            android:text="@string/_now" />
-
-        <RadioButton
-            android:id="@+id/_5"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
-            android:buttonTint="@color/radio_button_color"
-            android:text="@string/_5_minute" />
+            android:text=":"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
 
-        <RadioButton
-            android:id="@+id/_10"
+        <TextView
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/radio_button_color"
-            android:text="@string/_10_minute" />
+            android:text="@string/_now"
+            android:textSize="18sp" />
+
+        <!--        <RadioButton-->
+        <!--            android:id="@+id/_0"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+
+        <!--            android:layout_marginEnd="5sp"-->
+        <!--            android:buttonTint="@color/radio_button_color"-->
+        <!--            android:text="@string/_now" />-->
+
+        <!--        <RadioButton-->
+        <!--            android:id="@+id/_5"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginEnd="5sp"-->
+        <!--            android:buttonTint="@color/radio_button_color"-->
+        <!--            android:text="@string/_5_minute" />-->
+
+        <!--        <RadioButton-->
+        <!--            android:id="@+id/_10"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:buttonTint="@color/radio_button_color"-->
+        <!--            android:text="@string/_10_minute" />-->
 
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSelectTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="@dimen/smallMar"
+        android:hint="@string/time"
+        android:minWidth="120dp"
+        android:padding="10dp"
+        android:textColorHint="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@id/btnSelectBackground"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time_radio_group" />
 
     <Button
         android:id="@+id/btnSelectBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
         android:layout_marginBottom="@dimen/smallMar"
         android:hint="@string/background"
         android:minWidth="120dp"
@@ -163,7 +194,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnSelectRingtone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time_radio_group" />
+        app:layout_constraintTop_toBottomOf="@id/btnSelectTime" />
 
     <Button
         android:id="@+id/btnSelectRingtone"
@@ -189,7 +220,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/smallMar"
-        android:layout_marginBottom="@dimen/inputHeight"
+        android:layout_marginBottom="30dp"
         android:hint="@string/Voice"
         android:minWidth="120dp"
         android:padding="10dp"

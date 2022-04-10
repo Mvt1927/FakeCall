@@ -21,6 +21,11 @@
         <!--        <item name="android:windowTranslucentNavigation">true</item>-->
     </style>
 
+    <style name="Theme.FakeCall.Light" parent="Theme.FakeCall">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimaryDark">@color/white</item>
+    </style>
+
     <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/Primary</item>
     </style>

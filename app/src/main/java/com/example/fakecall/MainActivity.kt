@@ -18,6 +18,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.SystemClock
 import android.provider.MediaStore
+import android.text.format.DateFormat.is24HourFormat
 import android.util.Log
 import android.view.Display
 import android.widget.*
@@ -25,8 +26,11 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.loader.content.CursorLoader
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import java.io.File
 import java.io.IOException
+import java.util.*
 
 
 @Suppress("DEPRECATION")
@@ -52,6 +56,7 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
     }
 
     private var backPressedTime: Long = 0
+    private var isTimePikerDialogShow: Boolean = false
     private var isCustomDialogShow: Boolean = false
     private lateinit var nameEditText: EditText
     private lateinit var phoneEditText: EditText
@@ -61,14 +66,17 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
     private lateinit var sharedPref: SharedPreferences
     private lateinit var backToast: Toast
 
+    private lateinit var btnTimePicker: Button
     private lateinit var btnBackground: Button
     private lateinit var btnRingtone: Button
     private lateinit var btnVoice: Button
     private lateinit var btnStart: ImageButton
     private lateinit var radioGroup: RadioGroup
-    private lateinit var radio0: RadioButton
-    private lateinit var radio5: RadioButton
-    private lateinit var radio10: RadioButton
+    private lateinit var timeTextView: TextView
+    private var time: Long = 0
+//    private lateinit var radio0: RadioButton
+//    private lateinit var radio5: RadioButton
+//    private lateinit var radio10: RadioButton
 
     private lateinit var alarmManager: AlarmManager
     private lateinit var pendingIntent: PendingIntent
@@ -87,11 +95,13 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
         btnRingtone = findViewById(R.id.btnSelectRingtone)
         btnVoice = findViewById(R.id.btnAddVoice)
         radioGroup = findViewById(R.id.time_radio_group)
-        radio0 = findViewById(R.id._0)
-        radio5 = findViewById(R.id._5)
-        radio10 = findViewById(R.id._10)
+        btnTimePicker = findViewById(R.id.btnSelectTime)
+        timeTextView = findViewById(R.id.time)
+//        radio0 = findViewById(R.id._0)
+//        radio5 = findViewById(R.id._5)
+//        radio10 = findViewById(R.id._10)
 
-        radio0.isChecked = true
+//        radio0.isChecked = true
         sharedPref = getSharedPreferences("file", 0)
         alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         pendingIntent =
@@ -123,6 +133,11 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
             onAvatarClick()
         }
 
+
+        btnTimePicker.setOnClickListener {
+            onBtnSetTimeClick()
+
+        }
         btnBackground.setOnClickListener {
             onBtnSetBackgroundClick()
         }
@@ -141,6 +156,62 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
 
         setCaller()
         requestPermission(998, false)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun onBtnSetTimeClick() {
+        val isSystem24Hour = is24HourFormat(this)
+        var currentTime = Calendar.getInstance()
+        var currentHour = currentTime.get(Calendar.HOUR_OF_DAY)
+        var currentMinute: Int = currentTime.get(Calendar.MINUTE)
+
+        val clockFormat: Int = if (isSystem24Hour) {
+            TimeFormat.CLOCK_24H
+        } else {
+            TimeFormat.CLOCK_12H
+        }
+        if (!isTimePikerDialogShow) {
+            val picker =
+                MaterialTimePicker.Builder()
+                    .setTheme(R.style.CustomTimePickerDialog)
+                    .setTimeFormat(clockFormat)
+                    .setHour(currentHour)
+                    .setMinute(currentMinute)
+                    .setTitleText(getString(R.string.select_time))
+                    .build()
+            picker.show(supportFragmentManager, "timePicker")
+            isTimePikerDialogShow = true
+            picker.addOnPositiveButtonClickListener {
+                val newHour: Int = picker.hour
+                val newMinute: Int = picker.minute
+                currentTime = Calendar.getInstance()
+                currentMinute = currentTime.get(Calendar.MINUTE)
+                currentHour = if (isSystem24Hour) {
+                    currentTime.get(Calendar.HOUR_OF_DAY)
+                } else {
+                    currentTime.get(Calendar.HOUR)
+                }
+//                Toast.makeText(this, "$newHour:$newMinute", Toast.LENGTH_SHORT).show()
+                when {
+                    isSystem24Hour -> timeTextView.text =
+                        "${String.format("%02d", newHour)}:${String.format("%02d", newMinute)}"
+                    newHour <= 12 -> timeTextView.text = "${String.format("%02d", newHour)}:${
+                        String.format("%02d",
+                            newMinute)
+                    } ${getString(R.string.time_am)}"
+                    else -> timeTextView.text = "${String.format("%02d", newHour - 12)}:${
+                        String.format("%02d",
+                            newMinute)
+                    } ${getString(R.string.time_pm)}"
+                }
+                time = if (currentHour <= newHour)
+                    ((newHour * 3600 + newMinute * 60) - (currentHour * 3600 + currentMinute * 60)).toLong()
+                else ((currentHour * 3600 + currentMinute * 60) - (newHour * 3600 + newMinute * 60) + 24 * 3600).toLong()
+            }
+            picker.addOnDismissListener {
+                isTimePikerDialogShow = false
+            }
+        }
     }
 
     private fun onBtnSetVoiceClick() {
@@ -200,26 +271,17 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
     }
 
     private fun onBtnStartFakeCallClick() {
-//        val startFakeCall = Intent(this, CallingActivity::class.java)
-//        startActivity(startFakeCall)
-//        finish()
-        var text = ""
-        var time: Long = 0
-        when (radioGroup.checkedRadioButtonId) {
-            R.id._0 -> {
-                text = getString(R.string.time_0)
-                time = 0
-            }
-            R.id._5 -> {
-                text = getString(R.string.time_5)
-                time = 300
-            }
-            R.id._10 -> {
-                text = getString(R.string.time_10)
-                time = 600
-            }
-            else -> CustomToast.info(this, "Null", duration = Toast.LENGTH_LONG)
-        }
+        var text = getString(R.string.time_0)
+        if (!(time <= 0 || time >= 3600)) {
+            text =
+                getString(R.string.time_5) + " ${time / 60} ${getString(R.string.time_minute)} ${time % 60} ${
+                    getString(R.string.time_second)
+                } "
+        } else if (time > 0)
+            text =
+                getString(R.string.time_5) + " ${time / 3600} ${getString(R.string.time_hour)} ${if (time % 3600 % 60 > 30) (time % 3600 / 60) + 1 else time % 3600 / 60} ${
+                    getString(R.string.time_minute)
+                } "
         alarmManager.set(
             AlarmManager.ELAPSED_REALTIME_WAKEUP,
             SystemClock.elapsedRealtime() + (time * 1000),
@@ -395,6 +457,7 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
         }
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     private fun requestPermission(id: Int = 999, r: Boolean = true) {
         if (Build.VERSION.SDK_INT >= 23) {
             when (id) {

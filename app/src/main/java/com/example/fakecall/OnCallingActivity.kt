@@ -19,8 +19,11 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -92,6 +95,7 @@ class OnCallingActivity : AppCompatActivity() {
             }, 1000)
         }
         btnSpeaker.setOnClickListener {
+//            startAnimation(it,R.anim.btn_animation_1)
             toggleButtonSpeaker()
         }
         btnNumpad.setOnClickListener {
@@ -105,6 +109,11 @@ class OnCallingActivity : AppCompatActivity() {
             makeVoice()
             startCountTime()
         }, 1000)
+    }
+
+    private fun startAnimation(view: View, id: Int) {
+        val animation: Animation = AnimationUtils.loadAnimation(this, id)
+        view.startAnimation(animation)
     }
 
     private fun setImageAvatar(path: String? = "") {
@@ -138,6 +147,7 @@ class OnCallingActivity : AppCompatActivity() {
     }
 
     private fun toggleButtonSpeaker() {
+        isSpeaker = !isSpeaker
         when (isSpeaker) {
             true -> {
                 btnSpeaker.icon.setTint(resources.getColor(R.color.Dark))
@@ -148,10 +158,10 @@ class OnCallingActivity : AppCompatActivity() {
                 btnSpeaker.background.setTint(resources.getColor(R.color.invisible_full))
             }
         }
-        isSpeaker = !isSpeaker
     }
 
     private fun toggleButtonNumpad() {
+        isNumpad = !isNumpad
         when (isNumpad) {
             true -> {
                 btnNumpad.icon.setTint(resources.getColor(R.color.Dark))
@@ -165,7 +175,6 @@ class OnCallingActivity : AppCompatActivity() {
 //                btnSpeaker.background.setColorFilter(resources.getColor(R.color.Light),PorterDuff.Mode.SRC_IN)
             }
         }
-        isNumpad = !isNumpad
     }
 
     private fun getTimeFromInt(s: Int): String {

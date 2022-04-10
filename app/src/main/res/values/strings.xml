@@ -41,13 +41,16 @@
     <string name="count_time_on_call" translatable="false">count time on call</string>
     <string name="time_test" translatable="false">00:00</string>
     <string name="icon_speaker" translatable="false">Icon speaker</string>
-    <string name="time">Time:</string>
+    <string name="time">Time</string>
     <string name="_10_minute">10 minute</string>
     <string name="_5_minute">5 minute</string>
     <string name="_now">Now</string>
     <string name="time_0">Fake call will start in a few seconds</string>
-    <string name="time_5">Fake call is started after 5 minutes</string>
-    <string name="time_10">Fake call is started after 10 minutes</string>
+    <string name="time_5">"Fake call will start in "</string>
+    <string name="time_10">Fake call will start in </string>
+    <string name="time_minute">minutes</string>
+    <string name="time_hour">hour</string>
+    <string name="time_second">second</string>
     <string name="video">Video</string>
     <string name="hold_on">Hold on</string>
     <string name="record">Record</string>
@@ -55,4 +58,8 @@
     <string name="per">You have denied access to the storage, you may have to manually go into the settings to re-grant this app permission to use some functions.</string>
     <string name="per0">You have denied access to memory, you may have to go into settings provide memory access to use this function</string>
     <string name="todo" translatable="false">TODO</string>
+    <string name="select_time">Select time</string>
+    <string name="time_am">AM</string>
+    <string name="time_pm">PM</string>
+
 </resources>

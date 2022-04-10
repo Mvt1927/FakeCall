@@ -15,8 +15,13 @@
         <item name="android:buttonBarNeutralButtonStyle">@style/NeutralButtonStyle</item>
     </style>
 
+    <style name="CustomTimePickerDialog" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorOnPrimary">@color/Light</item>
+    </style>
+
     <style name="ShapeAppearanceOverlay.MyApp.Button.Rounded" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
 </resources>

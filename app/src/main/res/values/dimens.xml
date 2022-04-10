@@ -6,6 +6,6 @@
     <dimen name="inputHeight">60dp</dimen>
     <dimen name="DefaultDimenAvatar">100dp</dimen>
     <dimen name="ImageMarginTop">50dp</dimen>
-    <dimen name="smallMar">5dp</dimen>
+    <dimen name="smallMar">0dp</dimen>
     <dimen name="dimenBtnStart">80dp</dimen>
 </resources>
