@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-30T20:56:39.860Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.136 Safari/537.36" etag="bdaVO1fJn2OgeN3DG8jN" version="18.0.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-05-30T21:00:11.163Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.136 Safari/537.36" etag="-YLuzEdd6L8xj_LM2y78" version="18.0.2" type="github" pages="3">
   <diagram id="-fW24uMB1CK-DhXoHvDs" name="Menu chinh">
     <mxGraphModel dx="994" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -98,6 +98,47 @@
         </mxCell>
         <mxCell id="59dFZbWBGoWiz-XF6vwv-6" value="Tắt thông báo cuộc gọi" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="275" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="CYoN6_-4gU-awaydO761" name="Trong cuoc gọi">
+    <mxGraphModel dx="994" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-4" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SGKZPb9OYN-XLFCkzn9p-2" target="SGKZPb9OYN-XLFCkzn9p-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-6" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SGKZPb9OYN-XLFCkzn9p-2" target="SGKZPb9OYN-XLFCkzn9p-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-8" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SGKZPb9OYN-XLFCkzn9p-2" target="SGKZPb9OYN-XLFCkzn9p-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-10" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SGKZPb9OYN-XLFCkzn9p-2" target="SGKZPb9OYN-XLFCkzn9p-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-12" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SGKZPb9OYN-XLFCkzn9p-2" target="SGKZPb9OYN-XLFCkzn9p-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-2" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="210" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-3" value="Tắt/Bật bàn phím" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="440" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-5" value="Ghi âm cuộc gọi" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="315" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-7" value="Tắt/Bật loa ngoài" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="190" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-9" value="Tắt mic" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="220" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGKZPb9OYN-XLFCkzn9p-11" value="Kết thúc cuộc gọi" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="425" y="340" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
