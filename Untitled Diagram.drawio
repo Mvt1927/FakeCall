@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-30T20:40:12.914Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.136 Safari/537.36" etag="o3ry70WcsHgd4swk_qIZ" version="18.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-30T20:41:48.426Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.136 Safari/537.36" etag="pzOThaZB-KD_MkZzMimn" version="18.0.2" type="github">
   <diagram id="tlTPYUTBiCnpokof4Ioi" name="Page-1">
     <mxGraphModel dx="828" dy="453" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -66,7 +66,7 @@
         <mxCell id="9p6k7eEchZMV0HpYFgiu-26" value="Default" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
           <mxGeometry x="80" y="440" width="140" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="9p6k7eEchZMV0HpYFgiu-27" value="+ GetID(): Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-26">
+        <mxCell id="9p6k7eEchZMV0HpYFgiu-27" value="+ GetID()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-26">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="9p6k7eEchZMV0HpYFgiu-28" value="+ SetDefault(GetID())" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-26">
@@ -78,10 +78,10 @@
         <mxCell id="9p6k7eEchZMV0HpYFgiu-31" value="Import" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
           <mxGeometry x="80" y="560" width="210" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="9p6k7eEchZMV0HpYFgiu-32" value="+ GetID(): Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-31">
+        <mxCell id="9p6k7eEchZMV0HpYFgiu-32" value="+ GetID()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-31">
           <mxGeometry y="30" width="210" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="9p6k7eEchZMV0HpYFgiu-33" value="+ HasPermission(): Boolen" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-31">
+        <mxCell id="9p6k7eEchZMV0HpYFgiu-33" value="+ HasPermission()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-31">
           <mxGeometry y="60" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="9p6k7eEchZMV0HpYFgiu-34" value="+ InportFile(GetID(),HasPermission())" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-31">
@@ -148,10 +148,10 @@
         <mxCell id="9p6k7eEchZMV0HpYFgiu-59" value="- Deny" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-67">
           <mxGeometry y="29" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="9p6k7eEchZMV0HpYFgiu-60" value="+ stopNotification()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-57">
+        <mxCell id="9p6k7eEchZMV0HpYFgiu-83" value="+ startNotification()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-57">
           <mxGeometry y="90" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="9p6k7eEchZMV0HpYFgiu-83" value="+ startNotification()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-57">
+        <mxCell id="9p6k7eEchZMV0HpYFgiu-60" value="+ stopNotification()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="9p6k7eEchZMV0HpYFgiu-57">
           <mxGeometry y="120" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="9p6k7eEchZMV0HpYFgiu-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9p6k7eEchZMV0HpYFgiu-52" target="9p6k7eEchZMV0HpYFgiu-57">
