@@ -46,6 +46,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.mikhaellopez:circularimageview:3.0.2'
     implementation 'com.pranavpandey.android:dynamic-toasts:4.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.10"
 
     //implementation 'com.github.pedant.sweet-alert-dialog:library:1.3'
 

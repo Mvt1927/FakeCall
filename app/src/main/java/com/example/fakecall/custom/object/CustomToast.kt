@@ -1,13 +1,22 @@
 /*******************************************************************************
  * Copyright (c) 2022 Mvt1927
+ * Create 17/5/2022
+ */
+/*******************************************************************************
+ * Copyright (c) 2022 Mvt1927
+ * Create 17/5/2022
+ */
+/*******************************************************************************
+ * Copyright (c) 2022 Mvt1927
  * Update 3/3/2022
  */
-package com.example.fakecall
+package com.example.fakecall.custom.`object`
 
 import android.content.Context
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.content.ContextCompat.getDrawable
+import com.example.fakecall.R
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 
 object CustomToast {
