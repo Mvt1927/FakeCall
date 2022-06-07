@@ -61,5 +61,6 @@
     <string name="select_time">Select time</string>
     <string name="time_am">AM</string>
     <string name="time_pm">PM</string>
+    <string name="text_stop">stop</string>
 
 </resources>

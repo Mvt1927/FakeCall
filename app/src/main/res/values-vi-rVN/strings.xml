@@ -51,4 +51,5 @@
     <string name="time_second">giây</string>
     <string name="time_am">SA</string>
     <string name="time_pm">PM</string>
+    <string name="text_stop">Dừng</string>
 </resources>

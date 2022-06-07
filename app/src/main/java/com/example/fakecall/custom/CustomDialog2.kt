@@ -1,8 +1,12 @@
 /*******************************************************************************
+ * Copyright (c) 2022 Mvt1927
+ * Create 17/5/2022
+ */
+/*******************************************************************************
  * Copyright (c) Mvt1927
  * Update 2/3/2022
  */
-package com.example.fakecall
+package com.example.fakecall.custom
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -10,12 +14,11 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import com.example.fakecall.R
 
 
-class CustomDialog internal constructor(
-
+class CustomDialog2 internal constructor(
     var c: Context,
-    private val ID: Int,
     private var t: CharSequence = "Test",
     private var m: CharSequence = "Test",
 ) : DialogFragment() {
@@ -29,25 +32,19 @@ class CustomDialog internal constructor(
                 .setMessage("$m\n\n")
 /*
 *                   -1 -> cancel
-*                   0  -> default
-*                   1  -> import
+*                   1  -> stop
 *
 * */
                 .setNeutralButton(
-                    R.string.text_cancel
-                ) { _, _ ->
-                    buttonClick = -1
-                }
-
-                .setPositiveButton(
-                    R.string.text_import,
+                    R.string.text_stop
                 ) { _, _ ->
                     buttonClick = 1
                 }
-                .setNegativeButton(
-                    R.string.text_default,
+
+                .setPositiveButton(
+                    R.string.text_cancel,
                 ) { _, _ ->
-                    buttonClick = 0
+                    buttonClick = -1
                 }
             // Create the AlertDialog object and return it
             builder.create()
@@ -57,7 +54,7 @@ class CustomDialog internal constructor(
 
 
     interface CustomDialogListener {
-        fun onCustomDialogDismiss(button: Int, id: Int)
+        fun onCustomDialogDismiss(button: Int)
     }
 
     override fun onAttach(context: Context) {
@@ -77,7 +74,7 @@ class CustomDialog internal constructor(
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        listener.onCustomDialogDismiss(buttonClick, ID)
+        listener.onCustomDialogDismiss(buttonClick)
     }
 }
 

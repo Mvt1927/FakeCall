@@ -1,11 +1,15 @@
 /*******************************************************************************
  * Copyright (c) 2022 Mvt1927
+ * Create 17/5/2022
+ */
+/*******************************************************************************
+ * Copyright (c) 2022 Mvt1927
  * Create 23/2/2022
  */
 
 @file:Suppress("DEPRECATION")
 
-package com.example.fakecall
+package com.example.fakecall.activity
 
 import android.Manifest
 import android.content.Context
@@ -33,6 +37,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.net.toUri
+import com.example.fakecall.R
+import com.example.fakecall.`object`.BlurBuilder
 
 
 class CallingActivity : AppCompatActivity() {
@@ -165,13 +171,11 @@ class CallingActivity : AppCompatActivity() {
 
 
     private fun isWiredHeadsetOn(): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val audioDevices = audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
-            for (deviceInfo in audioDevices) {
-                if (deviceInfo.type == AudioDeviceInfo.TYPE_WIRED_HEADPHONES
-                    || deviceInfo.type == AudioDeviceInfo.TYPE_WIRED_HEADSET
-                ) return true
-            }
+        val audioDevices = audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
+        for (deviceInfo in audioDevices) {
+            if (deviceInfo.type == AudioDeviceInfo.TYPE_WIRED_HEADPHONES
+                || deviceInfo.type == AudioDeviceInfo.TYPE_WIRED_HEADSET
+            ) return true
         }
         return false
     }
@@ -183,6 +187,10 @@ class CallingActivity : AppCompatActivity() {
         val background = sharedPref.getString(BACKGROUND, DEFAULT_TEXT)
         val avatar = sharedPref.getString(AVATAR, DEFAULT_TEXT)
         val ringtone = sharedPref.getString(RINGTONE, DEFAULT_TEXT)
+
+
+
+
 
         nameEditText.text = name
         phoneEditText.text = phone

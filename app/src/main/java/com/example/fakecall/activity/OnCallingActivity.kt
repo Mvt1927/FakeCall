@@ -1,29 +1,32 @@
 /*******************************************************************************
  * Copyright (c) 2022 Mvt1927
+ * Create 17/5/2022
+ */
+/*******************************************************************************
+ * Copyright (c) 2022 Mvt1927
  * Create 10/3/2022
  */
 @file:Suppress("DEPRECATION")
 
-package com.example.fakecall
+package com.example.fakecall.activity
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -32,6 +35,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.net.toUri
+import com.example.fakecall.R
+import com.example.fakecall.`object`.BlurBuilder
 import com.google.android.material.button.MaterialButton
 
 
@@ -67,6 +72,7 @@ class OnCallingActivity : AppCompatActivity() {
 
     private lateinit var voicePath: String
     private lateinit var voice: MediaPlayer
+    private lateinit var mAudioManager: AudioManager
     private var isSpeaker: Boolean = false
     private var isNumpad: Boolean = false
 
@@ -111,10 +117,10 @@ class OnCallingActivity : AppCompatActivity() {
         }, 1000)
     }
 
-    private fun startAnimation(view: View, id: Int) {
-        val animation: Animation = AnimationUtils.loadAnimation(this, id)
-        view.startAnimation(animation)
-    }
+//    private fun startAnimation(view: View, id: Int) {
+//        val animation: Animation = AnimationUtils.loadAnimation(this, id)
+//        view.startAnimation(animation)
+//    }
 
     private fun setImageAvatar(path: String? = "") {
         if (ContextCompat.checkSelfPermission(
@@ -132,8 +138,16 @@ class OnCallingActivity : AppCompatActivity() {
         }
     }
 
-    private fun makeVoice() {
-        voice.setAudioStreamType(AudioManager.STREAM_VOICE_CALL)
+    private fun makeVoice(streamType: Int = AudioManager.STREAM_VOICE_CALL, msec: Int? = null) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            voice.setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setLegacyStreamType(streamType)
+                    .build()
+            )
+        } else {
+            voice.setAudioStreamType(streamType)
+        }
         if (voicePath != "")
             voice.setDataSource(this, voicePath.toUri())
         else {
@@ -143,19 +157,26 @@ class OnCallingActivity : AppCompatActivity() {
         }
         voice.isLooping = true
         voice.prepare()
+        if (msec != null)
+            voice.seekTo(msec)
         voice.start()
     }
 
     private fun toggleButtonSpeaker() {
         isSpeaker = !isSpeaker
+        val mCurrentPosition = voice.currentPosition
+        mAudioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        voice.reset()
         when (isSpeaker) {
             true -> {
                 btnSpeaker.icon.setTint(resources.getColor(R.color.Dark))
                 btnSpeaker.background.setTint(resources.getColor(R.color.Light))
+                makeVoice(AudioManager.STREAM_MUSIC, mCurrentPosition)
             }
             false -> {
                 btnSpeaker.icon.setTint(resources.getColor(R.color.Light))
                 btnSpeaker.background.setTint(resources.getColor(R.color.invisible_full))
+                makeVoice(AudioManager.STREAM_VOICE_CALL, mCurrentPosition)
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.fakecall
+package com.example.fakecall.`object`
 /*
 * Copyright by https://stackoverflow.com/users/511082/b-yng
 * Convert to kotlin by Android Studio

@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/Avatar"

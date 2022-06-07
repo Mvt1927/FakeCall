@@ -1,4 +1,8 @@
-package com.example.fakecall
+/*******************************************************************************
+ * Copyright (c) 2022 Mvt1927
+ * Create 17/5/2022
+ */
+package com.example.fakecall.activity
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -16,7 +20,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.os.SystemClock
 import android.provider.MediaStore
 import android.text.format.DateFormat.is24HourFormat
 import android.util.Log
@@ -26,6 +29,11 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.loader.content.CursorLoader
+import com.example.fakecall.R
+import com.example.fakecall.custom.CustomDialog
+import com.example.fakecall.custom.`object`.CustomToast
+import com.example.fakecall.receiver.AlarmReceiver
+import com.example.fakecall.service.ReceiveCallService
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.io.File
@@ -74,6 +82,9 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
     private lateinit var radioGroup: RadioGroup
     private lateinit var timeTextView: TextView
     private var time: Long = 0
+    private var time_hour = 0
+    private var time_minute = 0
+    private var time_changed = 0
 //    private lateinit var radio0: RadioButton
 //    private lateinit var radio5: RadioButton
 //    private lateinit var radio10: RadioButton
@@ -85,7 +96,6 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         nameEditText = findViewById(R.id.nameEditText)
         phoneEditText = findViewById(R.id.phoneEditText)
         locationEditText = findViewById(R.id.locationEditText)
@@ -153,7 +163,6 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
         btnStart.setOnClickListener {
             onBtnStartFakeCallClick()
         }
-
         setCaller()
         requestPermission(998, false)
     }
@@ -184,6 +193,8 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
             picker.addOnPositiveButtonClickListener {
                 val newHour: Int = picker.hour
                 val newMinute: Int = picker.minute
+                time_hour = newHour
+                time_minute = newMinute
                 currentTime = Calendar.getInstance()
                 currentMinute = currentTime.get(Calendar.MINUTE)
                 currentHour = if (isSystem24Hour) {
@@ -191,7 +202,6 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
                 } else {
                     currentTime.get(Calendar.HOUR)
                 }
-//                Toast.makeText(this, "$newHour:$newMinute", Toast.LENGTH_SHORT).show()
                 when {
                     isSystem24Hour -> timeTextView.text =
                         "${String.format("%02d", newHour)}:${String.format("%02d", newMinute)}"
@@ -204,9 +214,7 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
                             newMinute)
                     } ${getString(R.string.time_pm)}"
                 }
-                time = if (currentHour <= newHour)
-                    ((newHour * 3600 + newMinute * 60) - (currentHour * 3600 + currentMinute * 60)).toLong()
-                else ((currentHour * 3600 + currentMinute * 60) - (newHour * 3600 + newMinute * 60) + 24 * 3600).toLong()
+                time_changed = 1
             }
             picker.addOnDismissListener {
                 isTimePikerDialogShow = false
@@ -272,6 +280,29 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
 
     private fun onBtnStartFakeCallClick() {
         var text = getString(R.string.time_0)
+        val isSystem24Hour = is24HourFormat(this)
+        val currentTime = Calendar.getInstance()
+        val currentMinute = currentTime.get(Calendar.MINUTE)
+        val currentHour = if (isSystem24Hour) {
+            currentTime.get(Calendar.HOUR_OF_DAY)
+        } else {
+            currentTime.get(Calendar.HOUR)
+        }
+        if (time_changed == 0) {
+            time_hour = if (isSystem24Hour) {
+                Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+            } else {
+                Calendar.getInstance().get(Calendar.HOUR)
+            }
+            time_minute = Calendar.getInstance().get(Calendar.MINUTE)
+        }
+        time = if (currentHour < time_hour) {
+            ((time_hour * 3600 + time_minute * 60) - (currentHour * 3600 + currentMinute * 60)).toLong()
+        } else if (currentHour == time_hour && currentMinute < time_minute)
+            ((time_minute * 60) - (currentMinute * 60)).toLong()
+        else if (currentHour == time_hour && currentMinute == time_minute)
+            (0).toLong()
+        else (24 * 3600 - (currentHour - time_hour) * 3600 - (currentMinute - time_minute) * 60).toLong()
         if (!(time <= 0 || time >= 3600)) {
             text =
                 getString(R.string.time_5) + " ${time / 60} ${getString(R.string.time_minute)} ${time % 60} ${
@@ -282,11 +313,8 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
                 getString(R.string.time_5) + " ${time / 3600} ${getString(R.string.time_hour)} ${if (time % 3600 % 60 > 30) (time % 3600 / 60) + 1 else time % 3600 / 60} ${
                     getString(R.string.time_minute)
                 } "
-        alarmManager.set(
-            AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            SystemClock.elapsedRealtime() + (time * 1000),
-            pendingIntent
-        )
+        val alarmManager: AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        ReceiveCallService.start(time_hour, time_minute, this, alarmManager)
         if (text != "") Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
         finish()
     }
@@ -324,6 +352,8 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
                 }
             }
         }
+
+
     }
 
     private fun performCrop(uri: Uri, id: Int) {
@@ -532,6 +562,7 @@ class MainActivity : AppCompatActivity(), CustomDialog.CustomDialogListener {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
