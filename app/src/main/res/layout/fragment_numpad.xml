@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2022 Mvt1927
+  ~ Create 9/6/2022
+  -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.NumpadFragment">
+
+    <LinearLayout
+        android:id="@+id/layout_mid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/invisible"
+                android:gravity="center"
+                android:importantForAutofill="no"
+                android:minWidth="150dp"
+                android:shadowColor="@color/invisible"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="normal"
+                tools:ignore="LabelFor" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:alpha="0.5"
+                android:background="@color/SecondaryLight" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:weightSum="1">
+
+            <GridLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:columnCount="3"
+                android:rowCount="2"
+                tools:ignore="UselessParent">
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="ABC"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="DEF"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="4"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="GHI"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="5"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="JKL"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="MNO"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="7"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="PQRS"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="8"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="TUV"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="9"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="WXYZ"
+                            android:textColor="@color/SecondaryLight"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_asterisk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <ImageView
+                            android:layout_width="32sp"
+                            android:layout_height="32sp"
+                            android:gravity="center"
+                            android:padding="5sp"
+                            android:src="@drawable/asterisk" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="5dp">
+
+                    <GridLayout
+                        android:id="@+id/btn_numpad_hash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:columnCount="1"
+
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="36sp"
+                            android:gravity="center"
+                            android:text="#"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </GridLayout>
+                </FrameLayout>
+            </GridLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

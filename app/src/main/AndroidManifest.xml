@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ~ Copyright (c) 2022 Mvt1927
-  ~ Create 7/6/2022
+  ~ Create 9/6/2022
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -51,9 +51,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.OnCallingActivity">
-
-        </activity>
+        <activity
+            android:name=".activity.OnCallingActivity"
+            android:exported="true"></activity>
         <activity android:name=".activity.StopReceiverActivity" />
     </application>
 

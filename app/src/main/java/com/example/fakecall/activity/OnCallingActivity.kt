@@ -1,5 +1,9 @@
 /*******************************************************************************
  * Copyright (c) 2022 Mvt1927
+ * Create 9/6/2022
+ */
+/*******************************************************************************
+ * Copyright (c) 2022 Mvt1927
  * Create 17/5/2022
  */
 /*******************************************************************************
@@ -35,8 +39,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
 import com.example.fakecall.R
 import com.example.fakecall.`object`.BlurBuilder
+import com.example.fakecall.fragment.FunctionButtonFragment
+import com.example.fakecall.fragment.NumpadFragment
 import com.google.android.material.button.MaterialButton
 
 
@@ -79,7 +86,8 @@ class OnCallingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_oncalling)
-
+        val fragment = FunctionButtonFragment()
+        showFragment(fragment)
         sharedPref = getSharedPreferences("file", 0)
         nameEditText = findViewById(R.id.nameEditText)
         phoneEditText = findViewById(R.id.phoneEditText)
@@ -117,10 +125,15 @@ class OnCallingActivity : AppCompatActivity() {
         }, 1000)
     }
 
-//    private fun startAnimation(view: View, id: Int) {
+    //    private fun startAnimation(view: View, id: Int) {
 //        val animation: Animation = AnimationUtils.loadAnimation(this, id)
 //        view.startAnimation(animation)
 //    }
+    fun showFragment(fragment: Fragment) {
+        val fragManager = supportFragmentManager.beginTransaction()
+        fragManager.replace(R.id.fragment, fragment)
+        fragManager.commit()
+    }
 
     private fun setImageAvatar(path: String? = "") {
         if (ContextCompat.checkSelfPermission(
@@ -187,13 +200,16 @@ class OnCallingActivity : AppCompatActivity() {
             true -> {
                 btnNumpad.icon.setTint(resources.getColor(R.color.Dark))
                 btnNumpad.background.setTint(resources.getColor(R.color.Light))
-//                btnSpeaker.background.setColorFilter(resources.getColor(R.color.Light),PorterDuff.Mode.SRC_IN)
-//                btnSpeaker.setBackgroundColor(R.drawable.circle_button_true)
+                val fragment = NumpadFragment()
+                avatarImageView.visibility = ImageView.GONE
+                showFragment(fragment)
             }
             false -> {
                 btnNumpad.icon.setTint(resources.getColor(R.color.Light))
                 btnNumpad.background.setTint(resources.getColor(R.color.invisible_full))
-//                btnSpeaker.background.setColorFilter(resources.getColor(R.color.Light),PorterDuff.Mode.SRC_IN)
+                val fragment = FunctionButtonFragment()
+                avatarImageView.visibility = ImageView.VISIBLE
+                showFragment(fragment)
             }
         }
     }
