@@ -53,7 +53,7 @@
 
         <activity
             android:name=".activity.OnCallingActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".activity.StopReceiverActivity" />
     </application>
 
